@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deutsch Lernkarten</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body, #root { margin: 0; padding: 0; min-height: 100vh; background: #fafaf7; }
+  </style>
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+"use strict";
+const e = React.createElement;
+const { useState, useCallback, useRef } = React;
+
+const TYPE_COLORS = {
+  word: { bg: "#e8f5e9", border: "#43a047", label: "Wort", accent: "#2e7d32" },
+  phrase: { bg: "#e3f2fd", border: "#1e88e5", label: "Ausdruck", accent: "#1565c0" },
+  concept: { bg: "#fff3e0", border: "#fb8c00", label: "Konzept", accent: "#e65100" },
+};
+
+const cardKey = (date, front) => date + "::" + front;
+
+function GermanFlashcards() {
+  const [SESSIONS, setSessions] = useState(null);
+  const [cardStats, setCardStats] = useState({});
+  const [mode, setMode] = useState("import");
+  const [selectedSessions, setSelectedSessions] = useState([]);
+  const [cards, setCards] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [flipped, setFlipped] = useState(false);
+  const [score, setScore] = useState({ correct: 0, incorrect: 0 });
+  const [shuffled, setShuffled] = useState(true);
+  const [filterType, setFilterType] = useState("all");
+  const [completed, setCompleted] = useState(false);
+  const [quizInput, setQuizInput] = useState("");
+  const [quizResult, setQuizResult] = useState(null);
+  const [showAnswer, setShowAnswer] = useState(false);
+  const [missedCards, setMissedCards] = useState([]);
+  const [importError, setImportError] = useState(null);
+  const [dragOver, setDragOver] = useState(false);
+  const [showAddCard, setShowAddCard] = useState(false);
+  const [newCard, setNewCard] = useState({ front: "", back: "", type: "word", date: "" });
+  const [addSuccess, setAddSuccess] = useState(false);
+  const fileInputRef = useRef(null);
+
+  const ALL_CARDS = SESSIONS
+    ? SESSIONS.flatMap(function(s) { return s.cards.map(function(c) { return Object.assign({}, c, { date: s.date }); }); })
+    : [];
+
+  const handleFileImport = function(file) {
+    if (!file) return;
+    setImportError(null);
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      try {
+        const data = JSON.parse(ev.target.result);
+        if (!Array.isArray(data)) throw new Error("JSON must be an array of sessions");
+        if (data.length === 0) throw new Error("No sessions found");
+        const first = data[0];
+        if (!first.date || !Array.isArray(first.cards))
+          throw new Error('Each session needs a "date" and "cards" array');
+        const firstCard = first.cards[0];
+        if (!firstCard || !firstCard.front || !firstCard.back)
+          throw new Error('Each card needs "front" and "back" fields');
+        const stats = {};
+        const normalized = data.map(function(s) {
+          return {
+            date: s.date,
+            cards: s.cards.map(function(c) {
+              const key = cardKey(s.date, c.front);
+              stats[key] = { seen: c.seen || 0, correct: c.correct || 0, wrong: c.wrong || 0 };
+              const rest = Object.assign({}, c);
+              delete rest.seen; delete rest.correct; delete rest.wrong;
+              if (!rest.type) rest.type = "word";
+              return rest;
+            }),
+          };
+        });
+        setSessions(normalized);
+        setCardStats(stats);
+        setMode("menu");
+      } catch (err) {
+        setImportError(err.message || "Invalid JSON file");
+      }
+    };
+    reader.onerror = function() { setImportError("Could not read file"); };
+    reader.readAsText(file);
+  };
+
+  const handleExport = function() {
+    if (!SESSIONS) return;
+    const exportData = SESSIONS.map(function(s) {
+      return {
+        date: s.date,
+        cards: s.cards.map(function(c) {
+          const key = cardKey(s.date, c.front);
+          const st = cardStats[key] || { seen: 0, correct: 0, wrong: 0 };
+          return Object.assign({}, c, { seen: st.seen, correct: st.correct, wrong: st.wrong });
+        }),
+      };
+    });
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "german_flashcards.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  const handleAddCard = function() {
+    if (!newCard.front.trim() || !newCard.back.trim()) return;
+    const date = newCard.date.trim() || new Date().toLocaleDateString("de-DE", {
+      day: "2-digit", month: "long", year: "numeric",
+    });
+    const card = { front: newCard.front.trim(), back: newCard.back.trim(), type: newCard.type };
+    setSessions(function(prev) {
+      const idx = prev.findIndex(function(s) { return s.date === date; });
+      if (idx >= 0) {
+        const updated = prev.slice();
+        updated[idx] = Object.assign({}, updated[idx], { cards: updated[idx].cards.concat([card]) });
+        return updated;
+      }
+      return prev.concat([{ date: date, cards: [card] }]);
+    });
+    setNewCard({ front: "", back: "", type: "word", date: "" });
+    setAddSuccess(true);
+    setTimeout(function() { setAddSuccess(false); }, 1500);
+  };
+
+  const handleDrop = function(ev) {
+    ev.preventDefault();
+    setDragOver(false);
+    const file = ev.dataTransfer && ev.dataTransfer.files && ev.dataTransfer.files[0];
+    if (file) handleFileImport(file);
+  };
+
+  const getStats = function(card) {
+    const key = cardKey(card.date, card.front);
+    return cardStats[key] || { seen: 0, correct: 0, wrong: 0 };
+  };
+
+  const recordStat = function(card, result) {
+    const key = cardKey(card.date, card.front);
+    setCardStats(function(prev) {
+      const old = prev[key] || { seen: 0, correct: 0, wrong: 0 };
+      const updated = {};
+      updated[key] = {
+        seen: old.seen + 1,
+        correct: old.correct + (result === "correct" ? 1 : 0),
+        wrong: old.wrong + (result === "wrong" ? 1 : 0),
+      };
+      return Object.assign({}, prev, updated);
+    });
+  };
+
+  const prepareCards = useCallback(
+    function(sessions, shuffle, type) {
+      if (!SESSIONS) return [];
+      var c;
+      if (sessions.length === 0) {
+        c = ALL_CARDS.slice();
+      } else {
+        c = SESSIONS.filter(function(s) { return sessions.indexOf(s.date) >= 0; })
+          .flatMap(function(s) { return s.cards.map(function(card) { return Object.assign({}, card, { date: s.date }); }); });
+      }
+      if (type !== "all") c = c.filter(function(card) { return card.type === type; });
+      if (shuffle) {
+        for (var i = c.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var t = c[i]; c[i] = c[j]; c[j] = t;
+        }
+      }
+      return c;
+    },
+    [SESSIONS, ALL_CARDS]
+  );
+
+  const startStudy = function() {
+    const c = prepareCards(selectedSessions, shuffled, filterType);
+    if (c.length === 0) return;
+    setCards(c); setCurrentIndex(0); setFlipped(false);
+    setScore({ correct: 0, incorrect: 0 }); setCompleted(false); setMissedCards([]);
+    setMode("study");
+  };
+
+  const startQuiz = function() {
+    const c = prepareCards(selectedSessions, shuffled, filterType);
+    if (c.length === 0) return;
+    setCards(c); setCurrentIndex(0); setQuizInput(""); setQuizResult(null);
+    setShowAnswer(false); setScore({ correct: 0, incorrect: 0 });
+    setCompleted(false); setMissedCards([]); setMode("quiz");
+  };
+
+  const handleMark = function(correct) {
+    const cur = cards[currentIndex];
+    recordStat(cur, correct ? "correct" : "wrong");
+    if (correct) { setScore(function(s) { return { correct: s.correct + 1, incorrect: s.incorrect }; }); }
+    else {
+      setScore(function(s) { return { correct: s.correct, incorrect: s.incorrect + 1 }; });
+      setMissedCards(function(m) { return m.concat([cur]); });
+    }
+    if (currentIndex + 1 >= cards.length) { setCompleted(true); }
+    else { setCurrentIndex(currentIndex + 1); setFlipped(false); }
+  };
+
+  const checkQuizAnswer = function() {
+    const cur = cards[currentIndex];
+    const answer = cur.back.toLowerCase();
+    const input = quizInput.trim().toLowerCase();
+    const answers = answer.split("/").map(function(a) { return a.trim(); });
+    const isCorrect = answers.some(function(a) { return a === input || a.indexOf(input) >= 0 || input.indexOf(a) >= 0; });
+    setQuizResult(isCorrect ? "correct" : "incorrect");
+    recordStat(cur, isCorrect ? "correct" : "wrong");
+    if (isCorrect) { setScore(function(s) { return { correct: s.correct + 1, incorrect: s.incorrect }; }); }
+    else {
+      setScore(function(s) { return { correct: s.correct, incorrect: s.incorrect + 1 }; });
+      setMissedCards(function(m) { return m.concat([cur]); });
+    }
+    setShowAnswer(true);
+  };
+
+  const handleQuizSkip = function() {
+    const cur = cards[currentIndex];
+    setShowAnswer(true); setQuizResult("incorrect");
+    recordStat(cur, "wrong");
+    setScore(function(s) { return { correct: s.correct, incorrect: s.incorrect + 1 }; });
+    setMissedCards(function(m) { return m.concat([cur]); });
+  };
+
+  const nextQuizCard = function() {
+    if (currentIndex + 1 >= cards.length) { setCompleted(true); }
+    else { setCurrentIndex(currentIndex + 1); setQuizInput(""); setQuizResult(null); setShowAnswer(false); }
+  };
+
+  const toggleSession = function(date) {
+    setSelectedSessions(function(s) {
+      return s.indexOf(date) >= 0 ? s.filter(function(d) { return d !== date; }) : s.concat([date]);
+    });
+  };
+
+  const selectAll = function() { SESSIONS && setSelectedSessions(SESSIONS.map(function(s) { return s.date; })); };
+  const selectNone = function() { setSelectedSessions([]); };
+
+  const totalSelected = SESSIONS
+    ? (selectedSessions.length === 0
+      ? ALL_CARDS.length
+      : SESSIONS.filter(function(s) { return selectedSessions.indexOf(s.date) >= 0; })
+          .reduce(function(sum, s) { return sum + s.cards.length; }, 0))
+    : 0;
+
+  const filteredCount = filterType === "all"
+    ? totalSelected
+    : prepareCards(selectedSessions, false, filterType).length;
+
+  const pct = score.correct + score.incorrect > 0
+    ? Math.round((score.correct / (score.correct + score.incorrect)) * 100) : 0;
+
+  const renderStatsBadge = function(c) {
+    const st = getStats(c);
+    const accuracy = st.seen > 0 ? Math.round((st.correct / Math.max(st.correct + st.wrong, 1)) * 100) : null;
+    return e("div", { style: S.statsBadge },
+      e("span", { style: S.statItem, title: "Times seen" }, "👁 " + st.seen),
+      e("span", { style: Object.assign({}, S.statItem, { color: "#43a047" }), title: "Correct" }, "✓ " + st.correct),
+      e("span", { style: Object.assign({}, S.statItem, { color: "#e53935" }), title: "Wrong" }, "✗ " + st.wrong),
+      accuracy !== null && e("span", {
+        style: Object.assign({}, S.statItem, {
+          fontWeight: 700,
+          color: accuracy >= 70 ? "#43a047" : accuracy >= 40 ? "#fb8c00" : "#e53935",
+        }), title: "Accuracy"
+      }, accuracy + "%")
+    );
+  };
+
+  // ─── IMPORT SCREEN ───
+  if (mode === "import") {
+    return e("div", { style: S.container },
+      e("div", { style: { textAlign: "center", marginBottom: 40, marginTop: 40 } },
+        e("div", { style: S.importIcon }, "📚"),
+        e("h1", { style: S.title }, "Deutsch Lernkarten"),
+        e("p", { style: Object.assign({}, S.subtitle, { maxWidth: 360, margin: "10px auto 0" }) },
+          "Import your flashcard data to get started. Upload the JSON file with your vocabulary sessions."
+        )
+      ),
+      e("div", {
+        onDragOver: function(ev) { ev.preventDefault(); setDragOver(true); },
+        onDragLeave: function() { setDragOver(false); },
+        onDrop: handleDrop,
+        onClick: function() { fileInputRef.current && fileInputRef.current.click(); },
+        style: Object.assign({}, S.dropZone, {
+          borderColor: dragOver ? "#1a1a2e" : importError ? "#e53935" : "#ccc",
+          background: dragOver ? "#f0f0ff" : "#fff",
+        }),
+      },
+        e("input", { ref: fileInputRef, type: "file", accept: ".json", style: { display: "none" },
+          onChange: function(ev) { handleFileImport(ev.target.files && ev.target.files[0]); } }),
+        e("div", { style: S.dropIcon }, dragOver ? "📥" : "📄"),
+        e("p", { style: S.dropText }, dragOver ? "Drop it here!" : "Click to browse or drag & drop"),
+        e("p", { style: S.dropHint }, ".json file")
+      ),
+      importError && e("div", { style: S.errorBox },
+        e("span", { style: { fontWeight: 600 } }, "Error: "), importError
+      ),
+      e("div", { style: S.formatBox },
+        e("h3", { style: S.formatTitle }, "Expected JSON format"),
+        e("pre", { style: S.formatPre }, '[\n  {\n    "date": "30. April 2025",\n    "cards": [\n      {\n        "front": "Wer ist das?",\n        "back": "Who is that?",\n        "type": "phrase",\n        "seen": 5,\n        "correct": 3,\n        "wrong": 2\n      }\n    ]\n  }\n]'),
+        e("p", { style: S.formatHint },
+          e("b", null, "seen"), ", ", e("b", null, "correct"), ", ", e("b", null, "wrong"),
+          " are optional (default to 0). Card types: ", e("b", null, "word"), ", ",
+          e("b", null, "phrase"), ", or ", e("b", null, "concept"), "."
+        )
+      )
+    );
+  }
+
+  // ─── MENU SCREEN ───
+  if (mode === "menu") {
+    return e("div", { style: S.container },
+      e("div", { style: S.header },
+        e("h1", { style: S.title }, "Deutsch Lernkarten"),
+        e("p", { style: S.subtitle }, ALL_CARDS.length + " Karten aus " + SESSIONS.length + " Unterrichtsstunden"),
+        e("div", { style: S.menuBtnRow },
+          e("button", { onClick: function() { setSessions(null); setCardStats({}); setSelectedSessions([]); setFilterType("all"); setMode("import"); }, style: S.reloadBtn }, "📥 Importieren"),
+          e("button", { onClick: handleExport, style: S.exportBtn }, "📤 Exportieren")
+        )
+      ),
+      e("div", { style: S.section },
+        e("div", { style: S.sectionHeader },
+          e("h2", { style: S.sectionTitle }, "Unterrichtsstunden auswählen"),
+          e("div", { style: S.selectionBtns },
+            e("button", { onClick: selectAll, style: S.smallBtn }, "Alle"),
+            e("button", { onClick: selectNone, style: S.smallBtn }, "Keine")
+          )
+        ),
+        e("div", { style: S.sessionGrid },
+          SESSIONS.map(function(s) {
+            const selected = selectedSessions.length === 0 || selectedSessions.indexOf(s.date) >= 0;
+            return e("button", {
+              key: s.date, onClick: function() { toggleSession(s.date); },
+              style: Object.assign({}, S.sessionChip, {
+                background: selected ? "#1a1a2e" : "#f5f5f5",
+                color: selected ? "#fff" : "#666",
+                borderColor: selected ? "#1a1a2e" : "#ddd",
+              }),
+            },
+              e("span", { style: S.chipDate }, s.date),
+              e("span", { style: S.chipCount }, s.cards.length)
+            );
+          })
+        )
+      ),
+      e("div", { style: S.section },
+        e("h2", { style: S.sectionTitle }, "Kartentyp"),
+        e("div", { style: S.filterRow },
+          [{ key: "all", label: "Alle" }, { key: "word", label: "Wörter" }, { key: "phrase", label: "Ausdrücke" }, { key: "concept", label: "Konzepte" }].map(function(f) {
+            return e("button", {
+              key: f.key, onClick: function() { setFilterType(f.key); },
+              style: Object.assign({}, S.filterBtn, {
+                background: filterType === f.key ? "#1a1a2e" : "#f5f5f5",
+                color: filterType === f.key ? "#fff" : "#555",
+              }),
+            }, f.label);
+          })
+        )
+      ),
+      e("div", { style: S.section },
+        e("button", {
+          onClick: function() { setShuffled(function(s) { return !s; }); },
+          style: Object.assign({}, S.shuffleBtn, {
+            background: shuffled ? "#1a1a2e" : "#f5f5f5",
+            color: shuffled ? "#fff" : "#888",
+            borderColor: shuffled ? "#1a1a2e" : "#ddd",
+          }),
+        },
+          e("span", { style: S.shuffleIcon }, "🔀"),
+          shuffled ? "Zufall an" : "Zufall aus"
+        )
+      ),
+      e("div", { style: S.cardCount }, filteredCount + " Karten ausgewählt"),
+      e("div", { style: S.startBtns },
+        e("button", { onClick: startStudy, style: S.startBtn, disabled: filteredCount === 0 }, "Lernen"),
+        e("button", { onClick: startQuiz, style: S.quizBtn, disabled: filteredCount === 0 }, "Quiz")
+      ),
+      showAddCard && e("div", { style: S.addCardPanel },
+        e("h3", { style: S.addCardTitle }, "Neue Karte hinzufügen"),
+        e("input", { type: "text", placeholder: "Vorderseite (z.B. der Hund)", value: newCard.front,
+          onChange: function(ev) { var v = ev.target.value; setNewCard(function(c) { return Object.assign({}, c, { front: v }); }); }, style: S.addCardInput }),
+        e("input", { type: "text", placeholder: "Rückseite (z.B. the dog)", value: newCard.back,
+          onChange: function(ev) { var v = ev.target.value; setNewCard(function(c) { return Object.assign({}, c, { back: v }); }); }, style: S.addCardInput }),
+        e("input", { type: "text", placeholder: "Datum (z.B. 01. April 2026) — leer = heute", value: newCard.date,
+          onChange: function(ev) { var v = ev.target.value; setNewCard(function(c) { return Object.assign({}, c, { date: v }); }); }, style: S.addCardInput }),
+        e("div", { style: S.addCardTypeRow },
+          [{ key: "word", label: "Wort" }, { key: "phrase", label: "Ausdruck" }, { key: "concept", label: "Konzept" }].map(function(t) {
+            return e("button", {
+              key: t.key, onClick: function() { setNewCard(function(c) { return Object.assign({}, c, { type: t.key }); }); },
+              style: Object.assign({}, S.addCardTypeBtn, {
+                background: newCard.type === t.key ? TYPE_COLORS[t.key].bg : "#f5f5f5",
+                color: newCard.type === t.key ? TYPE_COLORS[t.key].accent : "#888",
+                borderColor: newCard.type === t.key ? TYPE_COLORS[t.key].border : "#ddd",
+              }),
+            }, t.label);
+          })
+        ),
+        e("button", {
+          onClick: handleAddCard,
+          disabled: !newCard.front.trim() || !newCard.back.trim(),
+          style: Object.assign({}, S.addCardSubmit, { opacity: newCard.front.trim() && newCard.back.trim() ? 1 : 0.4 }),
+        }, addSuccess ? "✓ Hinzugefügt!" : "Karte hinzufügen")
+      ),
+      e("button", {
+        onClick: function() { setShowAddCard(function(s) { return !s; }); },
+        style: Object.assign({}, S.fab, {
+          background: showAddCard ? "#e53935" : "#1a1a2e",
+          transform: showAddCard ? "rotate(45deg)" : "rotate(0deg)",
+        }),
+        title: showAddCard ? "Schließen" : "Neue Karte",
+      }, "+")
+    );
+  }
+
+  // ─── RESULTS SCREEN ───
+  if (completed) {
+    return e("div", { style: S.container },
+      e("div", { style: S.resultsCard },
+        e("h2", { style: S.resultsTitle }, "Ergebnis"),
+        e("div", { style: S.scoreCircle }, e("span", { style: S.scorePct }, pct + "%")),
+        e("div", { style: S.scoreDetails },
+          e("span", { style: { color: "#43a047" } }, "✓ " + score.correct + " richtig"),
+          e("span", { style: { color: "#e53935" } }, "✗ " + score.incorrect + " falsch")
+        ),
+        missedCards.length > 0 && e("div", { style: S.missedSection },
+          e("h3", { style: S.missedTitle }, "Zum Wiederholen:"),
+          e("div", { style: S.missedList },
+            missedCards.map(function(c, i) {
+              const st = getStats(c);
+              return e("div", { key: i, style: S.missedItem },
+                e("div", null,
+                  e("span", { style: { fontWeight: 600 } }, c.front),
+                  e("span", { style: { color: "#888" } }, " → " + c.back)
+                ),
+                e("div", { style: S.missedStats }, "👁 " + st.seen + "  ✓ " + st.correct + "  ✗ " + st.wrong)
+              );
+            })
+          )
+        ),
+        e("div", { style: S.resultsBtnRow },
+          e("button", { onClick: function() { setMode("menu"); }, style: S.startBtn }, "Zurück zum Menü"),
+          e("button", { onClick: handleExport, style: S.exportBtnSmall }, "📤 Exportieren")
+        )
+      )
+    );
+  }
+
+  const card = cards[currentIndex];
+  const typeStyle = TYPE_COLORS[card && card.type] || TYPE_COLORS.word;
+
+  // ─── QUIZ MODE ───
+  if (mode === "quiz") {
+    return e("div", { style: S.container },
+      e("div", { style: S.topBar },
+        e("button", { onClick: function() { setMode("menu"); }, style: S.backBtn }, "← Menü"),
+        e("span", { style: S.progress }, (currentIndex + 1) + " / " + cards.length),
+        e("span", { style: S.scoreInline }, "✓" + score.correct + " ✗" + score.incorrect)
+      ),
+      e("div", { style: S.progressBarOuter },
+        e("div", { style: Object.assign({}, S.progressBarInner, { width: ((currentIndex + 1) / cards.length * 100) + "%" }) })
+      ),
+      e("div", { style: S.quizArea },
+        e("span", { style: Object.assign({}, S.typeBadge, { background: typeStyle.bg, color: typeStyle.accent, borderColor: typeStyle.border }) }, typeStyle.label),
+        e("p", { style: S.dateLabel }, card.date),
+        e("h2", { style: S.quizWord }, card.front),
+        !showAnswer
+          ? e("div", { style: S.quizInputArea },
+              e("input", { type: "text", value: quizInput,
+                onChange: function(ev) { setQuizInput(ev.target.value); },
+                onKeyDown: function(ev) { if (ev.key === "Enter" && quizInput.trim()) checkQuizAnswer(); },
+                placeholder: "Deine Antwort...", style: S.quizInputField, autoFocus: true }),
+              e("div", { style: S.quizBtnRow },
+                e("button", { onClick: checkQuizAnswer, disabled: !quizInput.trim(),
+                  style: Object.assign({}, S.checkBtn, { opacity: quizInput.trim() ? 1 : 0.4 }) }, "Prüfen"),
+                e("button", { onClick: handleQuizSkip, style: S.skipBtn }, "Überspringen")
+              )
+            )
+          : e("div", { style: S.quizResultArea },
+              e("div", { style: Object.assign({}, S.quizResultBanner, {
+                background: quizResult === "correct" ? "#e8f5e9" : "#ffebee",
+                borderColor: quizResult === "correct" ? "#43a047" : "#e53935",
+              }) }, quizResult === "correct" ? "✓ Richtig!" : "✗ Falsch"),
+              e("div", { style: S.correctAnswer },
+                e("span", { style: { color: "#888" } }, "Antwort: "), card.back
+              ),
+              quizResult === "incorrect" && quizInput.trim() && e("div", { style: S.yourAnswer },
+                e("span", { style: { color: "#888" } }, "Deine Antwort: "), quizInput
+              ),
+              renderStatsBadge(card),
+              e("button", { onClick: nextQuizCard, style: S.nextBtn, autoFocus: true }, "Weiter →")
+            )
+      )
+    );
+  }
+
+  // ─── STUDY MODE ───
+  return e("div", { style: S.container },
+    e("div", { style: S.topBar },
+      e("button", { onClick: function() { setMode("menu"); }, style: S.backBtn }, "← Menü"),
+      e("span", { style: S.progress }, (currentIndex + 1) + " / " + cards.length),
+      e("span", { style: S.scoreInline }, "✓" + score.correct + " ✗" + score.incorrect)
+    ),
+    e("div", { style: S.progressBarOuter },
+      e("div", { style: Object.assign({}, S.progressBarInner, { width: ((currentIndex + 1) / cards.length * 100) + "%" }) })
+    ),
+    e("div", { style: S.cardArea, onClick: function() { setFlipped(function(f) { return !f; }); } },
+      e("div", { style: Object.assign({}, S.flashcard, { borderColor: typeStyle.border, cursor: "pointer" }) },
+        e("span", { style: Object.assign({}, S.typeBadge, { background: typeStyle.bg, color: typeStyle.accent, borderColor: typeStyle.border }) }, typeStyle.label),
+        e("p", { style: S.dateLabel }, card.date),
+        e("h2", { style: S.cardText }, flipped ? card.back : card.front),
+        flipped && renderStatsBadge(card),
+        e("p", { style: S.flipHint }, flipped ? "Rückseite" : "Klicken zum Umdrehen")
+      )
+    ),
+    flipped && e("div", { style: S.markBtns },
+      e("button", { onClick: function() { handleMark(false); }, style: S.wrongBtn }, "✗ Nochmal"),
+      e("button", { onClick: function() { handleMark(true); }, style: S.correctBtn }, "✓ Gewusst!")
+    )
+  );
+}
+
+const S = {
+  container: { fontFamily: "'Georgia', serif", maxWidth: 600, margin: "0 auto", padding: "20px 16px", minHeight: "100vh", background: "#fafaf7", color: "#1a1a2e" },
+  importIcon: { fontSize: 56, marginBottom: 8 },
+  header: { textAlign: "center", marginBottom: 28 },
+  title: { fontSize: 32, fontWeight: 700, letterSpacing: "-0.02em", margin: 0, fontFamily: "'Georgia', serif" },
+  subtitle: { color: "#888", fontSize: 14, marginTop: 6, fontFamily: "system-ui, sans-serif" },
+  menuBtnRow: { display: "flex", gap: 8, justifyContent: "center", marginTop: 12 },
+  reloadBtn: { background: "none", border: "1px solid #ddd", borderRadius: 8, padding: "6px 14px", fontSize: 13, cursor: "pointer", color: "#888", fontFamily: "system-ui, sans-serif" },
+  exportBtn: { background: "#1a1a2e", border: "1px solid #1a1a2e", borderRadius: 8, padding: "6px 14px", fontSize: 13, cursor: "pointer", color: "#fff", fontFamily: "system-ui, sans-serif" },
+  exportBtnSmall: { background: "#fff", border: "2px solid #1a1a2e", borderRadius: 12, padding: "12px 24px", fontSize: 15, fontWeight: 600, cursor: "pointer", color: "#1a1a2e", fontFamily: "system-ui, sans-serif" },
+  resultsBtnRow: { display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" },
+  dropZone: { border: "2.5px dashed", borderRadius: 16, padding: "48px 24px", textAlign: "center", cursor: "pointer", transition: "all 0.2s", marginBottom: 20 },
+  dropIcon: { fontSize: 40, marginBottom: 8 },
+  dropText: { fontSize: 16, fontWeight: 500, color: "#444", margin: "0 0 4px", fontFamily: "system-ui, sans-serif" },
+  dropHint: { fontSize: 13, color: "#aaa", margin: 0, fontFamily: "system-ui, sans-serif" },
+  errorBox: { background: "#ffebee", border: "1px solid #ef9a9a", borderRadius: 10, padding: "12px 16px", fontSize: 14, color: "#c62828", marginBottom: 20, fontFamily: "system-ui, sans-serif" },
+  formatBox: { background: "#fff", border: "1px solid #e8e8e8", borderRadius: 12, padding: "16px 20px", marginBottom: 20 },
+  formatTitle: { fontSize: 13, fontWeight: 600, color: "#888", margin: "0 0 10px", textTransform: "uppercase", letterSpacing: "0.05em", fontFamily: "system-ui, sans-serif" },
+  formatPre: { background: "#f8f8f5", borderRadius: 8, padding: 14, fontSize: 12, overflow: "auto", margin: "0 0 8px", fontFamily: "'SF Mono', 'Fira Code', monospace", lineHeight: 1.5, color: "#333", border: "1px solid #eee" },
+  formatHint: { fontSize: 12, color: "#999", margin: 0, fontFamily: "system-ui, sans-serif" },
+  section: { marginBottom: 24 },
+  sectionHeader: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 },
+  sectionTitle: { fontSize: 16, fontWeight: 600, margin: 0, fontFamily: "system-ui, sans-serif", textTransform: "uppercase", letterSpacing: "0.05em", color: "#555" },
+  selectionBtns: { display: "flex", gap: 6 },
+  smallBtn: { border: "1px solid #ddd", background: "#fff", borderRadius: 6, padding: "4px 10px", fontSize: 12, cursor: "pointer", fontFamily: "system-ui, sans-serif" },
+  sessionGrid: { display: "flex", flexWrap: "wrap", gap: 6 },
+  sessionChip: { border: "1.5px solid", borderRadius: 8, padding: "6px 12px", fontSize: 13, cursor: "pointer", display: "flex", alignItems: "center", gap: 6, transition: "all 0.15s", fontFamily: "system-ui, sans-serif" },
+  chipDate: { fontWeight: 500 },
+  chipCount: { fontSize: 11, opacity: 0.7, background: "rgba(128,128,128,0.15)", borderRadius: 4, padding: "1px 5px" },
+  filterRow: { display: "flex", gap: 8, flexWrap: "wrap" },
+  filterBtn: { border: "none", borderRadius: 8, padding: "8px 16px", fontSize: 14, cursor: "pointer", fontWeight: 500, transition: "all 0.15s", fontFamily: "system-ui, sans-serif" },
+  shuffleBtn: { display: "flex", alignItems: "center", gap: 8, border: "1.5px solid", borderRadius: 10, padding: "10px 20px", fontSize: 14, fontWeight: 600, cursor: "pointer", transition: "all 0.15s", fontFamily: "system-ui, sans-serif" },
+  shuffleIcon: { fontSize: 16 },
+  cardCount: { textAlign: "center", fontSize: 14, color: "#888", marginBottom: 16, fontFamily: "system-ui, sans-serif" },
+  startBtns: { display: "flex", gap: 12, justifyContent: "center" },
+  startBtn: { background: "#1a1a2e", color: "#fff", border: "none", borderRadius: 12, padding: "14px 40px", fontSize: 17, fontWeight: 600, cursor: "pointer", fontFamily: "system-ui, sans-serif", letterSpacing: "0.02em" },
+  quizBtn: { background: "#fff", color: "#1a1a2e", border: "2px solid #1a1a2e", borderRadius: 12, padding: "14px 40px", fontSize: 17, fontWeight: 600, cursor: "pointer", fontFamily: "system-ui, sans-serif" },
+  topBar: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8, fontFamily: "system-ui, sans-serif" },
+  backBtn: { background: "none", border: "none", fontSize: 14, cursor: "pointer", color: "#888", fontFamily: "system-ui, sans-serif" },
+  progress: { fontSize: 14, fontWeight: 600, color: "#555" },
+  scoreInline: { fontSize: 13, color: "#888" },
+  progressBarOuter: { width: "100%", height: 4, background: "#e0e0e0", borderRadius: 2, marginBottom: 24, overflow: "hidden" },
+  progressBarInner: { height: "100%", background: "#1a1a2e", borderRadius: 2, transition: "width 0.3s ease" },
+  cardArea: { display: "flex", justifyContent: "center", marginBottom: 24 },
+  flashcard: { width: "100%", minHeight: 280, background: "#fff", borderRadius: 16, border: "2px solid", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "36px 32px 28px", boxShadow: "0 4px 24px rgba(0,0,0,0.06)", position: "relative", userSelect: "none" },
+  typeBadge: { position: "absolute", top: 16, left: 16, fontSize: 11, fontWeight: 600, padding: "3px 10px", borderRadius: 6, border: "1px solid", fontFamily: "system-ui, sans-serif", textTransform: "uppercase", letterSpacing: "0.05em" },
+  dateLabel: { position: "absolute", top: 16, right: 16, fontSize: 11, color: "#bbb", margin: 0, fontFamily: "system-ui, sans-serif" },
+  cardText: { fontSize: 26, fontWeight: 600, textAlign: "center", margin: 0, lineHeight: 1.3, fontFamily: "'Georgia', serif" },
+  statsBadge: { display: "flex", gap: 12, marginTop: 14, padding: "6px 14px", background: "#f5f5f2", borderRadius: 8, border: "1px solid #e8e8e5", fontFamily: "system-ui, sans-serif", fontSize: 12, fontWeight: 500 },
+  statItem: { display: "flex", alignItems: "center", gap: 3, color: "#666" },
+  flipHint: { fontSize: 12, color: "#bbb", marginTop: 10, marginBottom: 0, fontFamily: "system-ui, sans-serif" },
+  markBtns: { display: "flex", gap: 12, justifyContent: "center" },
+  wrongBtn: { background: "#ffebee", color: "#c62828", border: "2px solid #ef9a9a", borderRadius: 12, padding: "12px 32px", fontSize: 16, fontWeight: 600, cursor: "pointer", fontFamily: "system-ui, sans-serif" },
+  correctBtn: { background: "#e8f5e9", color: "#2e7d32", border: "2px solid #a5d6a7", borderRadius: 12, padding: "12px 32px", fontSize: 16, fontWeight: 600, cursor: "pointer", fontFamily: "system-ui, sans-serif" },
+  quizArea: { display: "flex", flexDirection: "column", alignItems: "center", padding: 24, background: "#fff", borderRadius: 16, boxShadow: "0 4px 24px rgba(0,0,0,0.06)", position: "relative", minHeight: 320, justifyContent: "center" },
+  quizWord: { fontSize: 28, fontWeight: 600, textAlign: "center", margin: "24px 0 4px", fontFamily: "'Georgia', serif" },
+  quizInputArea: { width: "100%", maxWidth: 360, marginTop: 12 },
+  quizInputField: { width: "100%", boxSizing: "border-box", padding: "12px 16px", fontSize: 16, border: "2px solid #ddd", borderRadius: 10, outline: "none", fontFamily: "system-ui, sans-serif", textAlign: "center", marginBottom: 12 },
+  quizBtnRow: { display: "flex", gap: 10, justifyContent: "center" },
+  checkBtn: { background: "#1a1a2e", color: "#fff", border: "none", borderRadius: 10, padding: "10px 28px", fontSize: 15, fontWeight: 600, cursor: "pointer", fontFamily: "system-ui, sans-serif" },
+  skipBtn: { background: "#f5f5f5", color: "#888", border: "1px solid #ddd", borderRadius: 10, padding: "10px 20px", fontSize: 14, cursor: "pointer", fontFamily: "system-ui, sans-serif" },
+  quizResultArea: { display: "flex", flexDirection: "column", alignItems: "center", gap: 12, width: "100%", marginTop: 8 },
+  quizResultBanner: { padding: "10px 24px", borderRadius: 10, border: "2px solid", fontSize: 18, fontWeight: 700, fontFamily: "system-ui, sans-serif" },
+  correctAnswer: { fontSize: 18, fontWeight: 500, textAlign: "center", fontFamily: "'Georgia', serif" },
+  yourAnswer: { fontSize: 14, textAlign: "center", fontFamily: "system-ui, sans-serif", color: "#c62828" },
+  nextBtn: { background: "#1a1a2e", color: "#fff", border: "none", borderRadius: 10, padding: "10px 28px", fontSize: 15, fontWeight: 600, cursor: "pointer", fontFamily: "system-ui, sans-serif", marginTop: 8 },
+  resultsCard: { background: "#fff", borderRadius: 16, padding: 32, boxShadow: "0 4px 24px rgba(0,0,0,0.06)", textAlign: "center" },
+  resultsTitle: { fontSize: 24, fontWeight: 700, margin: "0 0 20px", fontFamily: "'Georgia', serif" },
+  scoreCircle: { width: 120, height: 120, borderRadius: "50%", background: "#1a1a2e", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" },
+  scorePct: { fontSize: 36, fontWeight: 700, color: "#fff", fontFamily: "system-ui, sans-serif" },
+  scoreDetails: { display: "flex", justifyContent: "center", gap: 24, fontSize: 16, fontWeight: 600, marginBottom: 24, fontFamily: "system-ui, sans-serif" },
+  missedSection: { textAlign: "left", marginBottom: 24 },
+  missedTitle: { fontSize: 14, fontWeight: 600, color: "#888", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8, fontFamily: "system-ui, sans-serif" },
+  missedList: { display: "flex", flexDirection: "column", gap: 6 },
+  missedItem: { fontSize: 14, padding: "8px 12px", background: "#fff8f8", borderRadius: 8, border: "1px solid #ffcdd2", fontFamily: "system-ui, sans-serif" },
+  missedStats: { fontSize: 11, color: "#999", marginTop: 3, fontFamily: "system-ui, sans-serif" },
+  fab: { position: "fixed", bottom: 24, right: 24, width: 56, height: 56, borderRadius: "50%", border: "none", color: "#fff", fontSize: 32, fontWeight: 300, cursor: "pointer", boxShadow: "0 4px 16px rgba(0,0,0,0.2)", display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.25s ease", fontFamily: "system-ui, sans-serif", lineHeight: 1, zIndex: 10 },
+  addCardPanel: { background: "#fff", border: "1px solid #e0e0e0", borderRadius: 16, padding: "20px 20px 24px", marginTop: 24, boxShadow: "0 4px 20px rgba(0,0,0,0.06)" },
+  addCardTitle: { fontSize: 15, fontWeight: 600, margin: "0 0 14px", color: "#555", textTransform: "uppercase", letterSpacing: "0.05em", fontFamily: "system-ui, sans-serif" },
+  addCardInput: { width: "100%", boxSizing: "border-box", padding: "10px 14px", fontSize: 15, border: "1.5px solid #ddd", borderRadius: 10, outline: "none", fontFamily: "system-ui, sans-serif", marginBottom: 10, transition: "border-color 0.15s" },
+  addCardTypeRow: { display: "flex", gap: 8, marginBottom: 14 },
+  addCardTypeBtn: { flex: 1, border: "1.5px solid", borderRadius: 8, padding: "8px 0", fontSize: 13, fontWeight: 600, cursor: "pointer", transition: "all 0.15s", fontFamily: "system-ui, sans-serif", textAlign: "center" },
+  addCardSubmit: { width: "100%", background: "#1a1a2e", color: "#fff", border: "none", borderRadius: 10, padding: "12px 0", fontSize: 15, fontWeight: 600, cursor: "pointer", fontFamily: "system-ui, sans-serif", transition: "opacity 0.15s" },
+};
+
+ReactDOM.createRoot(document.getElementById("root")).render(e(GermanFlashcards));
+  </script>
+</body>
+</html>

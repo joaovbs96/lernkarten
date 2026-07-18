@@ -46,7 +46,110 @@ const saveStoredStats = function(stats) {
   } catch (err) {
     // ignore quota/availability errors
   }
+  idbSaveStats(stats);
 };
+
+const IDB_NAME = "lernkarten";
+const IDB_STORE = "kv";
+const IDB_STATS_KEY = "cardStats";
+
+const idbOpen = function() {
+  return new Promise(function(resolve) {
+    try {
+      if (!window.indexedDB) { resolve(null); return; }
+      const req = indexedDB.open(IDB_NAME, 1);
+      req.onupgradeneeded = function() {
+        try {
+          const db = req.result;
+          if (!db.objectStoreNames.contains(IDB_STORE)) db.createObjectStore(IDB_STORE);
+        } catch (err) {
+          // ignore
+        }
+      };
+      req.onsuccess = function() { resolve(req.result); };
+      req.onerror = function() { resolve(null); };
+    } catch (err) {
+      resolve(null);
+    }
+  });
+};
+
+const idbLoadStats = function() {
+  return idbOpen().then(function(db) {
+    if (!db) return {};
+    return new Promise(function(resolve) {
+      try {
+        const tx = db.transaction(IDB_STORE, "readonly");
+        const store = tx.objectStore(IDB_STORE);
+        const req = store.get(IDB_STATS_KEY);
+        req.onsuccess = function() {
+          const result = req.result;
+          if (!result || typeof result !== "object" || Array.isArray(result)) {
+            resolve({});
+          } else {
+            resolve(result);
+          }
+        };
+        req.onerror = function() { resolve({}); };
+      } catch (err) {
+        resolve({});
+      }
+    });
+  }).catch(function() { return {}; });
+};
+
+const idbSaveStats = function(stats) {
+  idbOpen().then(function(db) {
+    if (!db) return;
+    try {
+      const tx = db.transaction(IDB_STORE, "readwrite");
+      const store = tx.objectStore(IDB_STORE);
+      store.put(stats, IDB_STATS_KEY);
+    } catch (err) {
+      // ignore
+    }
+  }).catch(function() {
+    // ignore
+  });
+};
+
+const idbDeleteStats = function() {
+  idbOpen().then(function(db) {
+    if (!db) return;
+    try {
+      const tx = db.transaction(IDB_STORE, "readwrite");
+      const store = tx.objectStore(IDB_STORE);
+      store.delete(IDB_STATS_KEY);
+    } catch (err) {
+      // ignore
+    }
+  }).catch(function() {
+    // ignore
+  });
+};
+
+const mergeStats = function(a, b) {
+  const result = {};
+  const keys = {};
+  Object.keys(a || {}).forEach(function(k) { keys[k] = true; });
+  Object.keys(b || {}).forEach(function(k) { keys[k] = true; });
+  Object.keys(keys).forEach(function(k) {
+    const sa = (a && a[k]) || { seen: 0, correct: 0, wrong: 0 };
+    const sb = (b && b[k]) || { seen: 0, correct: 0, wrong: 0 };
+    result[k] = {
+      seen: Math.max(sa.seen || 0, sb.seen || 0),
+      correct: Math.max(sa.correct || 0, sb.correct || 0),
+      wrong: Math.max(sa.wrong || 0, sb.wrong || 0),
+    };
+  });
+  return result;
+};
+
+const flushStatsToIdb = function() { idbSaveStats(loadStoredStats()); };
+window.addEventListener("pagehide", flushStatsToIdb);
+document.addEventListener("visibilitychange", function() {
+  if (document.visibilityState === "hidden") flushStatsToIdb();
+});
 
 const parseSessions = function(text) {
   const data = JSON.parse(text);
@@ -117,6 +220,21 @@ function GermanFlashcards() {
   };
 
   useEffect(function() {
+    try {
+      if (navigator.storage && navigator.storage.persist) {
+        navigator.storage.persist().catch(function() {});
+      }
+    } catch (err) {
+      // ignore
+    }
+    idbLoadStats().then(function(idbStats) {
+      const merged = mergeStats(loadStoredStats(), idbStats);
+      setCardStats(merged);
+      saveStoredStats(merged);
+    });
+  }, []);
+
+  useEffect(function() {
     fetch("german_flashcards.json")
       .then(function(res) {
         if (!res.ok) throw new Error("Failed to fetch flashcards");
@@ -125,7 +243,6 @@ function GermanFlashcards() {
       .then(function(text) {
         const normalized = parseSessions(text);
         setSessions(normalized);
-        setCardStats(loadStoredStats());
         setMode("menu");
       })
       .catch(function() {
@@ -209,6 +326,7 @@ function GermanFlashcards() {
     } catch (err) {
       // ignore
     }
+    idbDeleteStats();
     setCardStats({});
   };
 

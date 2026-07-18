@@ -1,0 +1,2882 @@
+[
+  {
+    "date": "23. April 2025",
+    "cards": [
+      {
+        "front": "Wie heißt diese Person?",
+        "back": "What is this person called?",
+        "type": "phrase"
+      },
+      {
+        "front": "Woher kommt diese Person?",
+        "back": "Where does this person come from?",
+        "type": "phrase"
+      }
+    ]
+  },
+  {
+    "date": "30. April 2025",
+    "cards": [
+      {
+        "front": "Wer ist das?",
+        "back": "Who is that?",
+        "type": "phrase"
+      },
+      {
+        "front": "Was ist das?",
+        "back": "What is that?",
+        "type": "phrase"
+      },
+      {
+        "front": "Wie?",
+        "back": "How?",
+        "type": "word"
+      },
+      {
+        "front": "Wo?",
+        "back": "Where?",
+        "type": "word"
+      },
+      {
+        "front": "Woher kommen Sie?",
+        "back": "Where are you from? (formal)",
+        "type": "phrase"
+      },
+      {
+        "front": "Woher kommst du?",
+        "back": "Where are you from? (informal)",
+        "type": "phrase"
+      },
+      {
+        "front": "der Vorname",
+        "back": "the first name",
+        "type": "word"
+      },
+      {
+        "front": "der Nachname",
+        "back": "the family name",
+        "type": "word"
+      },
+      {
+        "front": "vor",
+        "back": "before / in front of",
+        "type": "word"
+      },
+      {
+        "front": "nach",
+        "back": "after",
+        "type": "word"
+      },
+      {
+        "front": "der Enkel",
+        "back": "the grandson",
+        "type": "word"
+      },
+      {
+        "front": "die Enkelin",
+        "back": "the granddaughter",
+        "type": "word"
+      },
+      {
+        "front": "deutschsprachig",
+        "back": "German-speaking (deutsch + Sprache)",
+        "type": "word"
+      },
+      {
+        "front": "DACH",
+        "back": "Deutschland, Österreich, Schweiz",
+        "type": "concept"
+      },
+      {
+        "front": "Possessive: ich / du / er,es / sie",
+        "back": "mein / dein / sein / ihr",
+        "type": "concept"
+      },
+      {
+        "front": "Possessive: wir / ihr / Sie,sie",
+        "back": "unser / euer / Ihr, ihr",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "07. Mai 2025",
+    "cards": [
+      {
+        "front": "der Fisch / die Fische",
+        "back": "the fish (sing./pl.)",
+        "type": "word"
+      },
+      {
+        "front": "die Gurke / die Gurken",
+        "back": "the cucumber(s)",
+        "type": "word"
+      },
+      {
+        "front": "das Lamm / die Lämmer",
+        "back": "the lamb(s)",
+        "type": "word"
+      },
+      {
+        "front": "die Nuss / die Nüsse",
+        "back": "the nut(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Quark",
+        "back": "German dairy product",
+        "type": "word"
+      },
+      {
+        "front": "die Tomate / die Tomaten",
+        "back": "the tomato(es)",
+        "type": "word"
+      },
+      {
+        "front": "der Wein / die Weine",
+        "back": "the wine(s)",
+        "type": "word"
+      },
+      {
+        "front": "die Birne",
+        "back": "the pear",
+        "type": "word"
+      },
+      {
+        "front": "Bio-",
+        "back": "prefix to indicate organic food",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "14. Mai 2025",
+    "cards": [
+      {
+        "front": "dasselbe",
+        "back": "the exact same thing",
+        "type": "word"
+      },
+      {
+        "front": "das gleiche",
+        "back": "the thing of the same make and build",
+        "type": "word"
+      },
+      {
+        "front": "genau so wie",
+        "back": "that is exactly like …",
+        "type": "phrase"
+      },
+      {
+        "front": "dort",
+        "back": "over there",
+        "type": "word"
+      },
+      {
+        "front": "sehr",
+        "back": "very",
+        "type": "word"
+      },
+      {
+        "front": "breit",
+        "back": "wide",
+        "type": "word"
+      },
+      {
+        "front": "schmal",
+        "back": "narrow",
+        "type": "word"
+      },
+      {
+        "front": "die Möbel",
+        "back": "furniture",
+        "type": "word"
+      },
+      {
+        "front": "Schau mal!",
+        "back": "Look!",
+        "type": "phrase"
+      }
+    ]
+  },
+  {
+    "date": "18. Juni 2025",
+    "cards": [
+      {
+        "front": "Es macht Spaß",
+        "back": "It's fun",
+        "type": "phrase"
+      },
+      {
+        "front": "trotzdem",
+        "back": "still though… / despite that",
+        "type": "word"
+      },
+      {
+        "front": "fließend",
+        "back": "fluently",
+        "type": "word"
+      },
+      {
+        "front": "What are personal pronouns?",
+        "back": "Pronouns used instead of a proper noun, referring to a person or thing",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "02. Juli 2025",
+    "cards": [
+      {
+        "front": "beenden",
+        "back": "to end something",
+        "type": "word"
+      },
+      {
+        "front": "waschecht",
+        "back": "born and bred / original",
+        "type": "word"
+      },
+      {
+        "front": "jemand",
+        "back": "someone",
+        "type": "word"
+      },
+      {
+        "front": "bestimmt",
+        "back": "surely",
+        "type": "word"
+      },
+      {
+        "front": "schießen",
+        "back": "to shoot",
+        "type": "word"
+      },
+      {
+        "front": "die Nacht",
+        "back": "the night",
+        "type": "word"
+      },
+      {
+        "front": "nackt",
+        "back": "naked",
+        "type": "word"
+      },
+      {
+        "front": "durch",
+        "back": "through",
+        "type": "word"
+      },
+      {
+        "front": "Ich muss los",
+        "back": "I need to go",
+        "type": "phrase"
+      },
+      {
+        "front": "leider",
+        "back": "alas / sadly",
+        "type": "word"
+      },
+      {
+        "front": "werden",
+        "back": "to become (also auxiliary for future tense)",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "09. Juli 2025",
+    "cards": [
+      {
+        "front": "aufbauen",
+        "back": "to assemble (baute auf – aufgebaut haben)",
+        "type": "word"
+      },
+      {
+        "front": "weitermachen",
+        "back": "to continue (machte weiter – weitergemacht haben)",
+        "type": "word"
+      },
+      {
+        "front": "der Gegensatz / die Gegensätze",
+        "back": "the opposite(s)",
+        "type": "word"
+      },
+      {
+        "front": "öffnen",
+        "back": "to open",
+        "type": "word"
+      },
+      {
+        "front": "zählen",
+        "back": "to count",
+        "type": "word"
+      },
+      {
+        "front": "zahlen",
+        "back": "to pay",
+        "type": "word"
+      },
+      {
+        "front": "das Schloss",
+        "back": "the castle / the lock",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "16. Juli 2025",
+    "cards": [
+      {
+        "front": "gerne",
+        "back": "used to show you like doing something (Ich koche gerne = I like to cook)",
+        "type": "word"
+      },
+      {
+        "front": "noch",
+        "back": "still",
+        "type": "word"
+      },
+      {
+        "front": "nicht mehr",
+        "back": "not anymore",
+        "type": "phrase"
+      },
+      {
+        "front": "reisen",
+        "back": "to travel",
+        "type": "word"
+      },
+      {
+        "front": "die Reise / die Reisen",
+        "back": "the vacation / the trip(s)",
+        "type": "word"
+      },
+      {
+        "front": "zeichnen",
+        "back": "to draw",
+        "type": "word"
+      },
+      {
+        "front": "malen",
+        "back": "to paint",
+        "type": "word"
+      },
+      {
+        "front": "rechnen",
+        "back": "to calculate",
+        "type": "word"
+      },
+      {
+        "front": "lächeln",
+        "back": "to smile",
+        "type": "word"
+      },
+      {
+        "front": "wohl",
+        "back": "indicates an assumption, not a fact",
+        "type": "word"
+      },
+      {
+        "front": "endlich",
+        "back": "in the end / finally / at last",
+        "type": "word"
+      },
+      {
+        "front": "schließen",
+        "back": "to close",
+        "type": "word"
+      },
+      {
+        "front": "heizen",
+        "back": "to heat",
+        "type": "word"
+      },
+      {
+        "front": "bilden",
+        "back": "to educate",
+        "type": "word"
+      },
+      {
+        "front": "einbilden",
+        "back": "to imagine",
+        "type": "word"
+      },
+      {
+        "front": "bleiben",
+        "back": "to stay",
+        "type": "word"
+      },
+      {
+        "front": "die Brille",
+        "back": "the glasses",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "22. Juli 2025",
+    "cards": [
+      {
+        "front": "weitermachen",
+        "back": "to continue",
+        "type": "word"
+      },
+      {
+        "front": "möchten",
+        "back": "to want something (politely)",
+        "type": "word"
+      },
+      {
+        "front": "sammeln",
+        "back": "to collect",
+        "type": "word"
+      },
+      {
+        "front": "der Fehler / die Fehler",
+        "back": "the mistake(s)",
+        "type": "word"
+      },
+      {
+        "front": "ändern",
+        "back": "to change",
+        "type": "word"
+      },
+      {
+        "front": "wechseln",
+        "back": "to exchange",
+        "type": "word"
+      },
+      {
+        "front": "verbessern",
+        "back": "to improve / to correct",
+        "type": "word"
+      },
+      {
+        "front": "klingeln",
+        "back": "to ring",
+        "type": "word"
+      },
+      {
+        "front": "glücklich",
+        "back": "happy",
+        "type": "word"
+      },
+      {
+        "front": "schmutzig",
+        "back": "dirty",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "23. Juli 2025",
+    "cards": [
+      {
+        "front": "nehmen",
+        "back": "to take",
+        "type": "word"
+      },
+      {
+        "front": "stehlen",
+        "back": "to steal",
+        "type": "word"
+      },
+      {
+        "front": "wachsen",
+        "back": "to grow",
+        "type": "word"
+      },
+      {
+        "front": "tragen",
+        "back": "to carry",
+        "type": "word"
+      },
+      {
+        "front": "lassen",
+        "back": "to let",
+        "type": "word"
+      },
+      {
+        "front": "stoßen",
+        "back": "to push",
+        "type": "word"
+      },
+      {
+        "front": "saufen",
+        "back": "to drink (like an animal or an alcoholic)",
+        "type": "word"
+      },
+      {
+        "front": "die Nachrichten",
+        "back": "the news",
+        "type": "word"
+      },
+      {
+        "front": "gerade",
+        "back": "right now / straight (direction)",
+        "type": "word"
+      },
+      {
+        "front": "die Frage / die Fragen",
+        "back": "the question(s)",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "29. Juli 2025",
+    "cards": [
+      {
+        "front": "Die Hoffnung stirbt zuletzt",
+        "back": "Hope springs eternal",
+        "type": "phrase"
+      },
+      {
+        "front": "der Stadtteil",
+        "back": "the neighbourhood of a city",
+        "type": "word"
+      },
+      {
+        "front": "der Einwohner / die Einwohner",
+        "back": "inhabitant(s)",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "30. Juli 2025",
+    "cards": [
+      {
+        "front": "der Mensch",
+        "back": "the human",
+        "type": "word"
+      },
+      {
+        "front": "das Buch / die Bücher",
+        "back": "the book(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Stift / die Stifte",
+        "back": "the pen(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Bleistift / die Bleistifte",
+        "back": "the pencil(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Radiergummi / die Radiergummis",
+        "back": "the eraser(s)",
+        "type": "word"
+      },
+      {
+        "front": "das Lineal / die Lineale",
+        "back": "the ruler(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Schwamm / die Schwämme",
+        "back": "the sponge(s)",
+        "type": "word"
+      },
+      {
+        "front": "Gender rule: der",
+        "back": "Männer (men), male persons",
+        "type": "concept"
+      },
+      {
+        "front": "Gender rule: das",
+        "back": "Diminutives (-chen), verbs/adjectives used as nouns",
+        "type": "concept"
+      },
+      {
+        "front": "Gender rule: die",
+        "back": "Frauen (women), and nouns ending in -ei, -keit, -ion, -ung, -ur",
+        "type": "concept"
+      },
+      {
+        "front": "Gender rule: das (foreign words)",
+        "back": "Foreign words ending in -o (Auto, Foto, Konto)",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "06. August 2025",
+    "cards": [
+      {
+        "front": "der Anzug / die Anzüge",
+        "back": "the suit(s)",
+        "type": "word"
+      },
+      {
+        "front": "das Ding / die Dinge",
+        "back": "the thing(s)",
+        "type": "word"
+      },
+      {
+        "front": "brauchen",
+        "back": "to need (brauchte – gebraucht haben)",
+        "type": "word"
+      },
+      {
+        "front": "wenig",
+        "back": "very little / not a lot",
+        "type": "word"
+      },
+      {
+        "front": "Zeitpunkt vs Zeitraum",
+        "back": "Zeitpunkt = point in time (um/am). Zeitraum = period (von…bis)",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "23. September 2025",
+    "cards": [
+      {
+        "front": "das Gerät / die Geräte",
+        "back": "the appliance(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Drucker / die Drucker",
+        "back": "the printer(s)",
+        "type": "word"
+      },
+      {
+        "front": "grau",
+        "back": "grey",
+        "type": "word"
+      },
+      {
+        "front": "altmodisch",
+        "back": "old fashioned",
+        "type": "word"
+      },
+      {
+        "front": "gemütlich",
+        "back": "cozy",
+        "type": "word"
+      },
+      {
+        "front": "weich",
+        "back": "soft",
+        "type": "word"
+      },
+      {
+        "front": "hart",
+        "back": "hard",
+        "type": "word"
+      },
+      {
+        "front": "glatt",
+        "back": "smooth",
+        "type": "word"
+      },
+      {
+        "front": "When do you use \"doch\"?",
+        "back": "To contradict a negative question/assumption. \"Du isst kein Fleisch?\" → \"Doch, ich esse Fleisch!\"",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "24. September 2025",
+    "cards": [
+      {
+        "front": "die Heizung",
+        "back": "the heater",
+        "type": "word"
+      },
+      {
+        "front": "Negation with \"nicht\"",
+        "back": "Negate verbs (end of sentence), adjectives/pronouns (before them). Used with definite/possessive articles.",
+        "type": "concept"
+      },
+      {
+        "front": "Negation with \"kein\"",
+        "back": "Used instead of indefinite article or with nouns without articles. (Hast du Hunger? → Nein, ich habe keinen Hunger.)",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "07. Oktober 2025",
+    "cards": [
+      {
+        "front": "spülen",
+        "back": "to do the dishes",
+        "type": "word"
+      },
+      {
+        "front": "die Spülmaschine",
+        "back": "the dish washer",
+        "type": "word"
+      },
+      {
+        "front": "montieren",
+        "back": "to assemble",
+        "type": "word"
+      },
+      {
+        "front": "der Spiegel",
+        "back": "the mirror",
+        "type": "word"
+      },
+      {
+        "front": "allein",
+        "back": "alone",
+        "type": "word"
+      },
+      {
+        "front": "schmecken",
+        "back": "to taste",
+        "type": "word"
+      },
+      {
+        "front": "der Hausmeister",
+        "back": "the handyman / the janitor",
+        "type": "word"
+      },
+      {
+        "front": "der Teilnehmer / die Teilnehmer",
+        "back": "the participant(s)",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "08. Oktober 2025",
+    "cards": [
+      {
+        "front": "senden",
+        "back": "to send (sendete – gesendet haben)",
+        "type": "word"
+      },
+      {
+        "front": "schicken",
+        "back": "to send (schickte – geschickt haben)",
+        "type": "word"
+      },
+      {
+        "front": "das Niveau",
+        "back": "the level",
+        "type": "word"
+      },
+      {
+        "front": "die Leute",
+        "back": "the people",
+        "type": "word"
+      },
+      {
+        "front": "Two types of questions",
+        "back": "1) Yes/No: verb first, then subject. 2) W-question: question word first, verb second.",
+        "type": "concept"
+      },
+      {
+        "front": "welcher / welche / welches",
+        "back": "which (der → welcher, die → welche, das → welches, pl. → welche)",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "14./15. Oktober 2025",
+    "cards": [
+      {
+        "front": "dabei",
+        "back": "while doing that",
+        "type": "word"
+      },
+      {
+        "front": "manche",
+        "back": "some of them",
+        "type": "word"
+      },
+      {
+        "front": "sonst noch was?",
+        "back": "anything else?",
+        "type": "phrase"
+      },
+      {
+        "front": "Nominativ",
+        "back": "Shows the subject (dictionary form)",
+        "type": "concept"
+      },
+      {
+        "front": "Akkusativ",
+        "back": "Shows the direct object — what is directly impacted by the subject",
+        "type": "concept"
+      },
+      {
+        "front": "Dativ",
+        "back": "Shows the recipient of the action",
+        "type": "concept"
+      },
+      {
+        "front": "warten",
+        "back": "to wait",
+        "type": "word"
+      },
+      {
+        "front": "meistens",
+        "back": "most of the time / usually",
+        "type": "word"
+      },
+      {
+        "front": "Personalpronomen im Akkusativ: ich/du/er/sie/es",
+        "back": "mich / dich / ihn / sie / es",
+        "type": "concept"
+      },
+      {
+        "front": "Personalpronomen im Akkusativ: wir/ihr/Sie",
+        "back": "uns / euch / Sie",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "21. Oktober 2025",
+    "cards": [
+      {
+        "front": "der Hals",
+        "back": "the throat",
+        "type": "word"
+      },
+      {
+        "front": "Ich habe Halsschmerzen",
+        "back": "I have a sore throat",
+        "type": "phrase"
+      },
+      {
+        "front": "genießen",
+        "back": "to enjoy / to take pleasure in something",
+        "type": "word"
+      },
+      {
+        "front": "das Tier / die Tiere",
+        "back": "the animal(s)",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "28. Oktober 2025",
+    "cards": [
+      {
+        "front": "Ich hätte gern…",
+        "back": "I would like …",
+        "type": "phrase"
+      },
+      {
+        "front": "selbstgemacht",
+        "back": "homemade",
+        "type": "word"
+      },
+      {
+        "front": "der Metzger",
+        "back": "the butcher / the butcher shop",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "29. Oktober 2025",
+    "cards": [
+      {
+        "front": "die Paprika / die Paprika",
+        "back": "the bell pepper(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Kürbis / die Kürbisse",
+        "back": "the pumpkin(s)",
+        "type": "word"
+      },
+      {
+        "front": "die Lakritze",
+        "back": "the licorice",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "12. November 2025",
+    "cards": [
+      {
+        "front": "Ein Unglück kommt selten allein",
+        "back": "When it rains, it pours",
+        "type": "phrase"
+      },
+      {
+        "front": "der Vorführeffekt",
+        "back": "\"The presentation effect\" — things stop working when you try to show them",
+        "type": "word"
+      },
+      {
+        "front": "When do we NOT use an article?",
+        "back": "Plural of indefinite, materials, non-specific amounts, jobs, abstract concepts, geographical names",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "18. November 2025",
+    "cards": [
+      {
+        "front": "das Taschentuch",
+        "back": "the handkerchief / tissue paper",
+        "type": "word"
+      },
+      {
+        "front": "das Portemonee",
+        "back": "the wallet",
+        "type": "word"
+      },
+      {
+        "front": "dringend",
+        "back": "urgently",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "19. November 2025",
+    "cards": [
+      {
+        "front": "heutzutage",
+        "back": "nowadays",
+        "type": "word"
+      },
+      {
+        "front": "sogar",
+        "back": "even (sogar vegane Schokolade!)",
+        "type": "word"
+      },
+      {
+        "front": "die Auswahl",
+        "back": "the selection",
+        "type": "word"
+      },
+      {
+        "front": "die Lebensmittel",
+        "back": "the groceries",
+        "type": "word"
+      },
+      {
+        "front": "tierisch",
+        "back": "animal-based",
+        "type": "word"
+      },
+      {
+        "front": "die Möhre / die Karotte",
+        "back": "the carrot",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "25. November 2025",
+    "cards": [
+      {
+        "front": "der Grund / die Gründe",
+        "back": "the reason(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Tierschutz",
+        "back": "the animal protection",
+        "type": "word"
+      },
+      {
+        "front": "der Umweltschutz",
+        "back": "the protection of the environment",
+        "type": "word"
+      },
+      {
+        "front": "die Umwelt",
+        "back": "the environment",
+        "type": "word"
+      },
+      {
+        "front": "gegen",
+        "back": "against",
+        "type": "word"
+      },
+      {
+        "front": "sich an etwas gewöhnen",
+        "back": "to get used to something",
+        "type": "phrase"
+      },
+      {
+        "front": "liefern",
+        "back": "to deliver",
+        "type": "word"
+      },
+      {
+        "front": "die Königin / der König",
+        "back": "the queen / the king",
+        "type": "word"
+      },
+      {
+        "front": "folgen",
+        "back": "to follow",
+        "type": "word"
+      },
+      {
+        "front": "früher / früh",
+        "back": "back in the day / early",
+        "type": "word"
+      },
+      {
+        "front": "der Metzger / die Metzger",
+        "back": "the butcher(s)",
+        "type": "word"
+      },
+      {
+        "front": "anbieten",
+        "back": "to offer",
+        "type": "word"
+      },
+      {
+        "front": "die Süßigkeiten",
+        "back": "the candy",
+        "type": "word"
+      },
+      {
+        "front": "wissen conjugation",
+        "back": "ich weiß, du weißt, er weiß, wir wissen, ihr wisst, Sie wissen",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "26. November 2025",
+    "cards": [
+      {
+        "front": "das Eislaufen",
+        "back": "ice skating",
+        "type": "word"
+      },
+      {
+        "front": "das Bergsteigen",
+        "back": "mountaineering",
+        "type": "word"
+      },
+      {
+        "front": "das Bogenschießen",
+        "back": "archery (der Bogen = bow, der Pfeil = arrow)",
+        "type": "word"
+      },
+      {
+        "front": "das Fallschirmspringen",
+        "back": "parachuting",
+        "type": "word"
+      },
+      {
+        "front": "gefährlich",
+        "back": "dangerous",
+        "type": "word"
+      },
+      {
+        "front": "originell",
+        "back": "original and a bit eccentric",
+        "type": "word"
+      },
+      {
+        "front": "-mal / pro",
+        "back": "x times / per",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "02. Dezember 2025",
+    "cards": [
+      {
+        "front": "ungewöhnlich",
+        "back": "unconventional",
+        "type": "word"
+      },
+      {
+        "front": "hüpfen",
+        "back": "to hop",
+        "type": "word"
+      },
+      {
+        "front": "springen",
+        "back": "to jump",
+        "type": "word"
+      },
+      {
+        "front": "klettern",
+        "back": "to climb",
+        "type": "word"
+      },
+      {
+        "front": "die Mauer / die Mauern",
+        "back": "the outside wall(s)",
+        "type": "word"
+      },
+      {
+        "front": "die Wand / die Wände",
+        "back": "the inside wall(s)",
+        "type": "word"
+      },
+      {
+        "front": "die Treppe / die Treppen",
+        "back": "the stair(s)",
+        "type": "word"
+      },
+      {
+        "front": "die Kraft",
+        "back": "the strength / the power",
+        "type": "word"
+      },
+      {
+        "front": "der Muskel / die Muskeln",
+        "back": "the muscle(s)",
+        "type": "word"
+      },
+      {
+        "front": "anstrengend",
+        "back": "strenuous / draining",
+        "type": "word"
+      },
+      {
+        "front": "todmüde",
+        "back": "extremely tired",
+        "type": "word"
+      },
+      {
+        "front": "langweilig",
+        "back": "boring",
+        "type": "word"
+      },
+      {
+        "front": "aufstehen",
+        "back": "to get up",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "03. Dezember 2025",
+    "cards": [
+      {
+        "front": "What are separable verbs?",
+        "back": "Verbs combined with a prefix (usually a preposition). When conjugated, the prefix goes to the end of the sentence.",
+        "type": "concept"
+      },
+      {
+        "front": "fahren → abfahren",
+        "back": "to drive → to drive off (prefix goes to end)",
+        "type": "word"
+      },
+      {
+        "front": "rufen → anrufen",
+        "back": "to shout → to call (prefix goes to end)",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "09. Dezember 2025",
+    "cards": [
+      {
+        "front": "galoppieren",
+        "back": "to run (for horses)",
+        "type": "word"
+      },
+      {
+        "front": "reiten",
+        "back": "to ride (horses or other animals)",
+        "type": "word"
+      },
+      {
+        "front": "die Alpen",
+        "back": "the Alps",
+        "type": "word"
+      },
+      {
+        "front": "der Ehemann / die Ehefrau",
+        "back": "the husband / the wife",
+        "type": "word"
+      },
+      {
+        "front": "temperamentvoll",
+        "back": "passionate / with a temper",
+        "type": "word"
+      },
+      {
+        "front": "fast",
+        "back": "almost",
+        "type": "word"
+      },
+      {
+        "front": "unbekannt",
+        "back": "unknown",
+        "type": "word"
+      },
+      {
+        "front": "regelmäßig",
+        "back": "regularly",
+        "type": "word"
+      },
+      {
+        "front": "schauen",
+        "back": "to watch",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "10. Dezember 2025",
+    "cards": [
+      {
+        "front": "ausschlafen",
+        "back": "to sleep in",
+        "type": "word"
+      },
+      {
+        "front": "der Vertrag / die Verträge",
+        "back": "the contract(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Brief / die Briefe",
+        "back": "the letter(s)",
+        "type": "word"
+      },
+      {
+        "front": "die Post",
+        "back": "the mail (paper)",
+        "type": "word"
+      },
+      {
+        "front": "die Rechnung / die Rechnungen",
+        "back": "the invoice(s) / the bill(s)",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "13. Januar 2026",
+    "cards": [
+      {
+        "front": "die Hantel / die Hanteln",
+        "back": "the free weight(s)",
+        "type": "word"
+      },
+      {
+        "front": "beides",
+        "back": "both",
+        "type": "word"
+      },
+      {
+        "front": "spannend",
+        "back": "exciting",
+        "type": "word"
+      },
+      {
+        "front": "eigentlich",
+        "back": "technically … but …",
+        "type": "word"
+      },
+      {
+        "front": "laufen",
+        "back": "to run, to go jogging",
+        "type": "word"
+      },
+      {
+        "front": "vielleicht",
+        "back": "maybe",
+        "type": "word"
+      },
+      {
+        "front": "dort / hin / dorthin",
+        "back": "there / towards / over there",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "20. Januar 2026",
+    "cards": [
+      {
+        "front": "niemand",
+        "back": "nobody",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "21. Januar 2026",
+    "cards": [
+      {
+        "front": "Mein Kopf tut weh",
+        "back": "My head hurts",
+        "type": "phrase"
+      },
+      {
+        "front": "die Migräne",
+        "back": "the migraine",
+        "type": "word"
+      },
+      {
+        "front": "weniger",
+        "back": "less",
+        "type": "word"
+      },
+      {
+        "front": "der Tag der Arbeit",
+        "back": "Labour Day / International Workers' Day",
+        "type": "word"
+      },
+      {
+        "front": "der Tag der Deutschen Einheit",
+        "back": "Reunification Day",
+        "type": "word"
+      },
+      {
+        "front": "Ordinalzahlen 1.–19.",
+        "back": "Add -te (der erste, der zweite, der dritte, der vierte…)",
+        "type": "concept"
+      },
+      {
+        "front": "Ordinalzahlen ab 20.",
+        "back": "Add -ste (der zwanzigste, der einundzwanzigste…)",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "27. Januar 2026",
+    "cards": [
+      {
+        "front": "die Jahreszeit / die Jahreszeiten",
+        "back": "the season(s) of the year",
+        "type": "word"
+      },
+      {
+        "front": "der Frühling / der Sommer",
+        "back": "spring / summer",
+        "type": "word"
+      },
+      {
+        "front": "der Herbst / der Winter",
+        "back": "autumn / winter",
+        "type": "word"
+      },
+      {
+        "front": "Schlittschuh laufen",
+        "back": "ice skating",
+        "type": "word"
+      },
+      {
+        "front": "die Kerze",
+        "back": "the candle",
+        "type": "word"
+      },
+      {
+        "front": "anzünden",
+        "back": "to light something on fire",
+        "type": "word"
+      },
+      {
+        "front": "das Freibad",
+        "back": "the public open-air pool",
+        "type": "word"
+      },
+      {
+        "front": "das Schwimmbad",
+        "back": "the public indoor pool",
+        "type": "word"
+      },
+      {
+        "front": "Gassi gehen",
+        "back": "to walk a dog",
+        "type": "phrase"
+      },
+      {
+        "front": "gärtnern",
+        "back": "to garden",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "28. Januar 2026",
+    "cards": [
+      {
+        "front": "endgültig",
+        "back": "for good / finally",
+        "type": "word"
+      },
+      {
+        "front": "das Laub",
+        "back": "the foliage",
+        "type": "word"
+      },
+      {
+        "front": "das Blatt / die Blätter",
+        "back": "the leaf, leaves",
+        "type": "word"
+      },
+      {
+        "front": "der Boden",
+        "back": "the ground / the floor",
+        "type": "word"
+      },
+      {
+        "front": "ernst",
+        "back": "serious",
+        "type": "word"
+      },
+      {
+        "front": "seriös",
+        "back": "serious in a professional manner",
+        "type": "word"
+      },
+      {
+        "front": "genießen",
+        "back": "to enjoy",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "03. Februar 2026",
+    "cards": [
+      {
+        "front": "Temporale Präpositionen",
+        "back": "Prepositions of time — describe WHEN something happens (accusative or dative)",
+        "type": "concept"
+      },
+      {
+        "front": "im / am",
+        "back": "in / on (time)",
+        "type": "word"
+      },
+      {
+        "front": "um",
+        "back": "at (time)",
+        "type": "word"
+      },
+      {
+        "front": "seit",
+        "back": "since (started and still happening)",
+        "type": "word"
+      },
+      {
+        "front": "ab",
+        "back": "from (time)",
+        "type": "word"
+      },
+      {
+        "front": "bis",
+        "back": "until",
+        "type": "word"
+      },
+      {
+        "front": "bei",
+        "back": "during",
+        "type": "word"
+      },
+      {
+        "front": "vor / nach",
+        "back": "before / after",
+        "type": "word"
+      },
+      {
+        "front": "gegen",
+        "back": "approximately (time)",
+        "type": "word"
+      },
+      {
+        "front": "von … bis",
+        "back": "from … to …",
+        "type": "phrase"
+      },
+      {
+        "front": "zwischen",
+        "back": "between",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "06. Februar 2026",
+    "cards": [
+      {
+        "front": "stattfinden",
+        "back": "to happen (an event)",
+        "type": "word"
+      },
+      {
+        "front": "How is a noun's case determined?",
+        "back": "1) By function (subject, direct/indirect object) 2) By the preposition in front of it. Preposition beats function!",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "13. Februar 2026",
+    "cards": [
+      {
+        "front": "die Geschwister",
+        "back": "the siblings",
+        "type": "word"
+      },
+      {
+        "front": "alleinerziehend",
+        "back": "single parenting",
+        "type": "word"
+      },
+      {
+        "front": "die Qualzucht",
+        "back": "an unethically bred race / a race that suffers from how it's bred",
+        "type": "word"
+      },
+      {
+        "front": "die Nichte",
+        "back": "the niece",
+        "type": "word"
+      },
+      {
+        "front": "gehören",
+        "back": "to belong",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "20. Februar 2026",
+    "cards": [
+      {
+        "front": "mögen",
+        "back": "to like",
+        "type": "word"
+      },
+      {
+        "front": "der Neffe / die Neffen",
+        "back": "the nephew(s)",
+        "type": "word"
+      },
+      {
+        "front": "Lieblings-",
+        "back": "favourite (prefix)",
+        "type": "word"
+      },
+      {
+        "front": "mütterlicherseits",
+        "back": "maternal, from the mother's side (family)",
+        "type": "word"
+      },
+      {
+        "front": "väterlicherseits",
+        "back": "paternal, from the father's side (family)",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "24. Februar 2026",
+    "cards": [
+      {
+        "front": "das Homeoffice",
+        "back": "remote work",
+        "type": "word"
+      },
+      {
+        "front": "der Anwalt",
+        "back": "the lawyer",
+        "type": "word"
+      },
+      {
+        "front": "der Verkäufer",
+        "back": "the salesman",
+        "type": "word"
+      },
+      {
+        "front": "der Elektriker",
+        "back": "the electrician",
+        "type": "word"
+      },
+      {
+        "front": "die Personalabteilung",
+        "back": "HR (Human Resources)",
+        "type": "word"
+      },
+      {
+        "front": "Überstunden abfeiern",
+        "back": "to take time off for overtime",
+        "type": "phrase"
+      },
+      {
+        "front": "sich kümmern",
+        "back": "to take care of something/someone",
+        "type": "word"
+      },
+      {
+        "front": "ähnlich",
+        "back": "similar",
+        "type": "word"
+      },
+      {
+        "front": "die Fluggesellschaft",
+        "back": "the airline",
+        "type": "word"
+      },
+      {
+        "front": "erfüllen",
+        "back": "to fulfill",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "27. Februar 2026",
+    "cards": [
+      {
+        "front": "es geht um …",
+        "back": "it's about …",
+        "type": "phrase"
+      },
+      {
+        "front": "wollen",
+        "back": "to want",
+        "type": "word"
+      },
+      {
+        "front": "wissen",
+        "back": "to know",
+        "type": "word"
+      },
+      {
+        "front": "die Welt",
+        "back": "the world",
+        "type": "word"
+      },
+      {
+        "front": "fremd",
+        "back": "foreign",
+        "type": "word"
+      },
+      {
+        "front": "der Erwachsene / die Erwachsenen",
+        "back": "the adult(s)",
+        "type": "word"
+      },
+      {
+        "front": "die Erfahrung / die Erfahrungen",
+        "back": "experience(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Schatz",
+        "back": "the treasure / term of endearment",
+        "type": "word"
+      },
+      {
+        "front": "der Wunsch / die Wünsche",
+        "back": "the wish(es)",
+        "type": "word"
+      },
+      {
+        "front": "der Traum / die Träume",
+        "back": "the dream(s)",
+        "type": "word"
+      },
+      {
+        "front": "schwierig",
+        "back": "difficult",
+        "type": "word"
+      },
+      {
+        "front": "die Ausbildung",
+        "back": "apprenticeship / professional education",
+        "type": "word"
+      },
+      {
+        "front": "programmieren / coden",
+        "back": "to program / coding",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "03. März 2026",
+    "cards": [
+      {
+        "front": "glauben",
+        "back": "to believe",
+        "type": "word"
+      },
+      {
+        "front": "die Kündigung",
+        "back": "the termination",
+        "type": "word"
+      },
+      {
+        "front": "wahr",
+        "back": "true",
+        "type": "word"
+      },
+      {
+        "front": "die Wut / wütend",
+        "back": "the anger, fury / angry, furious",
+        "type": "word"
+      },
+      {
+        "front": "sauer",
+        "back": "sour / bitter (also: angry, colloquial)",
+        "type": "word"
+      },
+      {
+        "front": "nachdenken",
+        "back": "to think about something / to ponder",
+        "type": "word"
+      },
+      {
+        "front": "entlassen",
+        "back": "to dismiss",
+        "type": "word"
+      },
+      {
+        "front": "die Eifersucht",
+        "back": "the envy / the jealousy",
+        "type": "word"
+      },
+      {
+        "front": "traurig / die Trauer",
+        "back": "sad / the sadness, the grief",
+        "type": "word"
+      },
+      {
+        "front": "der Zorn / zornig",
+        "back": "the scorn, anger / angry",
+        "type": "word"
+      },
+      {
+        "front": "der Ärger / verärgert",
+        "back": "the anger, offense / offended, angry",
+        "type": "word"
+      },
+      {
+        "front": "der Hass",
+        "back": "the hate",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "06. März 2026",
+    "cards": [
+      {
+        "front": "die Langeweile",
+        "back": "the boredom",
+        "type": "word"
+      },
+      {
+        "front": "fröhlich",
+        "back": "happy / joyful",
+        "type": "word"
+      },
+      {
+        "front": "zittern",
+        "back": "to tremble",
+        "type": "word"
+      },
+      {
+        "front": "schwitzen",
+        "back": "to sweat",
+        "type": "word"
+      },
+      {
+        "front": "stottern",
+        "back": "to stutter",
+        "type": "word"
+      },
+      {
+        "front": "lächeln",
+        "back": "to smile",
+        "type": "word"
+      },
+      {
+        "front": "weinen",
+        "back": "to cry",
+        "type": "word"
+      },
+      {
+        "front": "leer",
+        "back": "empty",
+        "type": "word"
+      },
+      {
+        "front": "verletzt",
+        "back": "injured / hurt feelings",
+        "type": "word"
+      },
+      {
+        "front": "verabredet",
+        "back": "to be supposed to meet",
+        "type": "word"
+      },
+      {
+        "front": "verlobt",
+        "back": "engaged to be married",
+        "type": "word"
+      },
+      {
+        "front": "der Hörsaal",
+        "back": "the lecture room",
+        "type": "word"
+      },
+      {
+        "front": "brennen",
+        "back": "to burn",
+        "type": "word"
+      },
+      {
+        "front": "der Körper / die Körper",
+        "back": "the body, bodies",
+        "type": "word"
+      },
+      {
+        "front": "ganz",
+        "back": "whole / completely",
+        "type": "word"
+      },
+      {
+        "front": "verlassen",
+        "back": "to leave someone or something",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "10. März 2026",
+    "cards": [
+      {
+        "front": "die Umarmung / die Umarmungen",
+        "back": "the hug(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Krebs",
+        "back": "the cancer",
+        "type": "word"
+      },
+      {
+        "front": "gar nicht",
+        "back": "not at all",
+        "type": "phrase"
+      },
+      {
+        "front": "die Umfrage / die Umfragen",
+        "back": "the survey(s)",
+        "type": "word"
+      },
+      {
+        "front": "erzählen",
+        "back": "to tell",
+        "type": "word"
+      },
+      {
+        "front": "gesund",
+        "back": "healthy",
+        "type": "word"
+      },
+      {
+        "front": "sich freuen",
+        "back": "to be happy",
+        "type": "word"
+      },
+      {
+        "front": "die Vorfreude",
+        "back": "the joyful anticipation",
+        "type": "word"
+      },
+      {
+        "front": "die Sache / die Sachen",
+        "back": "the thing(s)",
+        "type": "word"
+      },
+      {
+        "front": "die Ferien",
+        "back": "the break from academic work",
+        "type": "word"
+      },
+      {
+        "front": "die Freude",
+        "back": "the happiness / joy",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "13. März 2026",
+    "cards": [
+      {
+        "front": "geteilt",
+        "back": "divided",
+        "type": "word"
+      },
+      {
+        "front": "die Mauer",
+        "back": "the wall",
+        "type": "word"
+      },
+      {
+        "front": "die Politik",
+        "back": "the politics",
+        "type": "word"
+      },
+      {
+        "front": "der Spielplatz / die Spielplätze",
+        "back": "the playground(s)",
+        "type": "word"
+      },
+      {
+        "front": "das Geschäft / der Laden",
+        "back": "the store",
+        "type": "word"
+      },
+      {
+        "front": "der See / die Seen",
+        "back": "the lake(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Hafen / die Häfen",
+        "back": "the harbour(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Baum / die Bäume",
+        "back": "the tree(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Vogel / die Vögel",
+        "back": "the bird(s)",
+        "type": "word"
+      },
+      {
+        "front": "Nur wenn mich jemand besucht",
+        "back": "Only when someone visits me",
+        "type": "phrase"
+      }
+    ]
+  },
+  {
+    "date": "20. März 2026",
+    "cards": [
+      {
+        "front": "das Komma",
+        "back": ", (comma)",
+        "type": "word"
+      },
+      {
+        "front": "z. B. / zum Beispiel",
+        "back": "for example",
+        "type": "phrase"
+      },
+      {
+        "front": "durchstreichen",
+        "back": "to strike through / to cross out",
+        "type": "word"
+      },
+      {
+        "front": "das Märchen / die Märchen",
+        "back": "the fairy tale(s)",
+        "type": "word"
+      },
+      {
+        "front": "wohnen",
+        "back": "to live (location of house/apartment)",
+        "type": "word"
+      },
+      {
+        "front": "Es hat nichts mit … zu tun",
+        "back": "It is not related to …",
+        "type": "phrase"
+      },
+      {
+        "front": "der Tipp / die Tipps",
+        "back": "the hint(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Tagesausflug / die Tagesausflüge",
+        "back": "the day trip(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Bach / die Bäche",
+        "back": "the stream(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Vormittag",
+        "back": "10–12 am",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "27. März 2026",
+    "cards": [
+      {
+        "front": "gefallen",
+        "back": "to please / to like",
+        "type": "word"
+      },
+      {
+        "front": "der Gefallen",
+        "back": "the favour (do me a favour)",
+        "type": "word"
+      },
+      {
+        "front": "echt",
+        "back": "real / truly",
+        "type": "word"
+      },
+      {
+        "front": "verstehen",
+        "back": "to understand",
+        "type": "word"
+      },
+      {
+        "front": "besonders",
+        "back": "especially",
+        "type": "word"
+      },
+      {
+        "front": "Dativ pronouns: ich/du/er/es/sie",
+        "back": "mir / dir / ihm / ihm / ihr",
+        "type": "concept"
+      },
+      {
+        "front": "Dativ pronouns: wir/ihr/sie/Sie",
+        "back": "uns / euch / ihnen / Ihnen",
+        "type": "concept"
+      },
+      {
+        "front": "Verbs that want a Dativ",
+        "back": "Verbs needing a 'recipient': danken, helfen, gehören, gefallen, geben, schenken, sagen, antworten…",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "14. April 2026",
+    "cards": [
+      {
+        "front": "nach dem Weg fragen",
+        "back": "to ask for directions",
+        "type": "phrase"
+      },
+      {
+        "front": "der Akku",
+        "back": "the rechargeable battery",
+        "type": "word"
+      },
+      {
+        "front": "die Batterie / die Batterien",
+        "back": "the battery, batteries",
+        "type": "word"
+      },
+      {
+        "front": "biegen",
+        "back": "to bend (bog – gebogen haben)",
+        "type": "word"
+      },
+      {
+        "front": "abbiegen",
+        "back": "to turn (when taking directions) (bog ab – abgebogen sein)",
+        "type": "word"
+      },
+      {
+        "front": "Nouns ending in -ung",
+        "back": "All nouns ending in -ung are feminine, e.g. die Zeitung, die Wohnung",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "17. April 2026",
+    "cards": [
+      {
+        "front": "beschäftigt",
+        "back": "busy",
+        "type": "word"
+      },
+      {
+        "front": "das Zeichen / die Zeichen",
+        "back": "the sign(s)",
+        "type": "word"
+      },
+      {
+        "front": "die Kreuzung / die Kreuzungen",
+        "back": "the crossroads (sing. and pl.)",
+        "type": "word"
+      },
+      {
+        "front": "spazieren",
+        "back": "to go for a stroll (spazierte – spaziert sein)",
+        "type": "word"
+      },
+      {
+        "front": "die Heizung / die Heizungen",
+        "back": "the radiator(s)",
+        "type": "word"
+      },
+      {
+        "front": "in der Mitte von + Dativ",
+        "back": "in the middle of …, e.g. 'In der Mitte von meiner Küche ist ein Tisch.'",
+        "type": "concept"
+      },
+      {
+        "front": "leer",
+        "back": "empty",
+        "type": "word"
+      },
+      {
+        "front": "schmutzig",
+        "back": "dirty",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "22. April 2026",
+    "cards": [
+      {
+        "front": "ordentlich",
+        "back": "well maintained / in order / well organized",
+        "type": "word"
+      },
+      {
+        "front": "bunt",
+        "back": "colourful",
+        "type": "word"
+      },
+      {
+        "front": "gegenüber von",
+        "back": "across from",
+        "type": "phrase"
+      },
+      {
+        "front": "wahrscheinlich",
+        "back": "probably",
+        "type": "word"
+      },
+      {
+        "front": "einziehen",
+        "back": "to move in (eingezogen sein)",
+        "type": "word"
+      },
+      {
+        "front": "ausziehen",
+        "back": "to move out (ausgezogen sein)",
+        "type": "word"
+      },
+      {
+        "front": "umziehen",
+        "back": "to move from one apartment to another (umgezogen sein)",
+        "type": "word"
+      },
+      {
+        "front": "die WG / die Wohngemeinschaft",
+        "back": "the communal apartment / the shared apartment",
+        "type": "word"
+      },
+      {
+        "front": "die Privatsphäre",
+        "back": "the privacy",
+        "type": "word"
+      },
+      {
+        "front": "gemütlich",
+        "back": "cozy",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "24. April 2026",
+    "cards": [
+      {
+        "front": "Gute Arbeit",
+        "back": "good job",
+        "type": "phrase"
+      },
+      {
+        "front": "Ich bin gespannt",
+        "back": "I'm curious to find out / I'm excited to see what happens next",
+        "type": "phrase"
+      },
+      {
+        "front": "die Kette / die Ketten",
+        "back": "the necklace(s) / chain(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Rucksack / die Rucksäcke",
+        "back": "the backpack(s)",
+        "type": "word"
+      },
+      {
+        "front": "die Tasche / die Taschen",
+        "back": "the bag(s)",
+        "type": "word"
+      },
+      {
+        "front": "das Gepäck",
+        "back": "the luggage",
+        "type": "word"
+      },
+      {
+        "front": "der Koffer / die Koffer",
+        "back": "the suitcase(s)",
+        "type": "word"
+      },
+      {
+        "front": "inklusive / inkl.",
+        "back": "inclusive",
+        "type": "word"
+      },
+      {
+        "front": "nehmen",
+        "back": "to take",
+        "type": "word"
+      },
+      {
+        "front": "Na gut",
+        "back": "fine / I guess (reluctantly)",
+        "type": "phrase"
+      }
+    ]
+  },
+  {
+    "date": "08. Mai 2026",
+    "cards": [
+      {
+        "front": "das Boot / die Boote",
+        "back": "the boat(s)",
+        "type": "word"
+      },
+      {
+        "front": "liegen",
+        "back": "to lay (lag – gelegen haben)",
+        "type": "word"
+      },
+      {
+        "front": "der / das Teil / die Teile",
+        "back": "the part(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Brunnen / die Brunnen",
+        "back": "the fountain(s) / the well(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Hafen",
+        "back": "the harbor",
+        "type": "word"
+      },
+      {
+        "front": "günstig",
+        "back": "inexpensive / affordable",
+        "type": "word"
+      },
+      {
+        "front": "kennen",
+        "back": "to know / be familiar with something or someone (kannte – gekannt haben)",
+        "type": "word"
+      },
+      {
+        "front": "Wie geht es weiter?",
+        "back": "How does it go on? / How does it continue?",
+        "type": "phrase"
+      }
+    ]
+  },
+  {
+    "date": "12. Mai 2026",
+    "cards": [
+      {
+        "front": "abbiegen",
+        "back": "to turn on a street (bog ab – abgebogen sein)",
+        "type": "word"
+      },
+      {
+        "front": "ziemlich",
+        "back": "quite",
+        "type": "word"
+      },
+      {
+        "front": "das Fahrrad / die Fahrräder",
+        "back": "the bicycle(s)",
+        "type": "word"
+      },
+      {
+        "front": "gleich",
+        "back": "directly / momentarily / immediately",
+        "type": "word"
+      },
+      {
+        "front": "sich vorstellen",
+        "back": "to introduce oneself",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "19. Mai 2026",
+    "cards": [
+      {
+        "front": "überrascht",
+        "back": "surprised",
+        "type": "word"
+      },
+      {
+        "front": "überraschen",
+        "back": "to surprise (überraschte – überrascht haben)",
+        "type": "word"
+      },
+      {
+        "front": "die beiden",
+        "back": "both of them",
+        "type": "phrase"
+      },
+      {
+        "front": "feststecken",
+        "back": "to be stuck",
+        "type": "word"
+      },
+      {
+        "front": "so was",
+        "back": "something like that",
+        "type": "phrase"
+      },
+      {
+        "front": "die Platzangst / die Klaustrophobie",
+        "back": "the claustrophobia",
+        "type": "word"
+      },
+      {
+        "front": "anbieten",
+        "back": "to offer",
+        "type": "word"
+      },
+      {
+        "front": "bitten",
+        "back": "to ask for something",
+        "type": "word"
+      },
+      {
+        "front": "die Heizung / die Heizungen",
+        "back": "the heater(s)",
+        "type": "word"
+      },
+      {
+        "front": "die Steckdose",
+        "back": "the power outlet",
+        "type": "word"
+      },
+      {
+        "front": "reparieren",
+        "back": "to fix / to repair (reparierte – repariert haben)",
+        "type": "word"
+      },
+      {
+        "front": "etwas selber reparieren",
+        "back": "to fix something by myself",
+        "type": "phrase"
+      }
+    ]
+  },
+  {
+    "date": "22. Mai 2026",
+    "cards": [
+      {
+        "front": "die Bruchbude",
+        "back": "a dilapidated shed / a house that should be abandoned",
+        "type": "word"
+      },
+      {
+        "front": "die Steckdose",
+        "back": "the outlet",
+        "type": "word"
+      },
+      {
+        "front": "die Dusche",
+        "back": "the shower",
+        "type": "word"
+      },
+      {
+        "front": "vorschlagen",
+        "back": "to propose / to suggest (schlug vor – vorgeschlagen haben)",
+        "type": "word"
+      },
+      {
+        "front": "absagen",
+        "back": "to cancel a meeting (sagte ab – abgesagt haben)",
+        "type": "word"
+      },
+      {
+        "front": "verschieben",
+        "back": "to postpone (verschob – verschoben haben)",
+        "type": "word"
+      },
+      {
+        "front": "der Kurs",
+        "back": "the course",
+        "type": "word"
+      },
+      {
+        "front": "kurz vor",
+        "back": "shortly before",
+        "type": "phrase"
+      },
+      {
+        "front": "das Vorstellungsgespräch",
+        "back": "the job interview",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "02. Juni 2026",
+    "cards": [
+      {
+        "front": "der Astronaut / die Astronauten",
+        "back": "the astronaut(s)",
+        "type": "word"
+      },
+      {
+        "front": "auf jeden Fall / unbedingt",
+        "back": "definitely / absolutely / no question",
+        "type": "phrase"
+      },
+      {
+        "front": "auf keinen Fall",
+        "back": "absolutely not",
+        "type": "phrase"
+      },
+      {
+        "front": "sich erinnern",
+        "back": "to remember",
+        "type": "word"
+      },
+      {
+        "front": "die Halbtagsstelle",
+        "back": "the part time job",
+        "type": "word"
+      },
+      {
+        "front": "selbstständig",
+        "back": "independent",
+        "type": "word"
+      },
+      {
+        "front": "vielleicht",
+        "back": "maybe",
+        "type": "word"
+      },
+      {
+        "front": "bekommen",
+        "back": "to get / to receive",
+        "type": "word"
+      },
+      {
+        "front": "das Abitur",
+        "back": "a set of final exams in school; passing it entitles you to study at a university",
+        "type": "concept"
+      },
+      {
+        "front": "werden conjugation",
+        "back": "ich werde, du wirst, er wird, wir werden, ihr werdet, Sie werden",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "16. Juni 2026",
+    "cards": [
+      {
+        "front": "nicht viel",
+        "back": "not a lot",
+        "type": "phrase"
+      },
+      {
+        "front": "telefonieren",
+        "back": "to speak on the phone (telefonierte – telefoniert haben)",
+        "type": "word"
+      },
+      {
+        "front": "die beiden",
+        "back": "both of them",
+        "type": "phrase"
+      },
+      {
+        "front": "Gibt es hier Worte, die wir nicht verstehen, oder die ganz neu sind?",
+        "back": "Are there any words that we don't understand or that are completely new?",
+        "type": "phrase"
+      },
+      {
+        "front": "die Selbstständigkeit",
+        "back": "the independency",
+        "type": "word"
+      },
+      {
+        "front": "anfangen",
+        "back": "to begin (fing an – angefangen haben)",
+        "type": "word"
+      },
+      {
+        "front": "sicher",
+        "back": "surely",
+        "type": "word"
+      },
+      {
+        "front": "Ärzte ohne Grenzen",
+        "back": "Doctors Without Borders",
+        "type": "phrase"
+      },
+      {
+        "front": "sofort",
+        "back": "immediately",
+        "type": "word"
+      },
+      {
+        "front": "mit + Dativ / ohne + Akkusativ",
+        "back": "'mit' takes the dative, 'ohne' takes the accusative, e.g. 'Ich gehe mit dem Kind spazieren' vs. 'Ich gehe ohne das Kind spazieren'",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "19. Juni 2026",
+    "cards": [
+      {
+        "front": "durch",
+        "back": "through",
+        "type": "word"
+      },
+      {
+        "front": "segeln",
+        "back": "to sail (segelte – gesegelt haben)",
+        "type": "word"
+      },
+      {
+        "front": "der Führerschein",
+        "back": "the drivers license",
+        "type": "word"
+      },
+      {
+        "front": "schwänzen",
+        "back": "to skip school (schwänzte – geschwänzt haben)",
+        "type": "word"
+      },
+      {
+        "front": "wollen + a second verb",
+        "back": "The second verb goes to the end of the sentence and stays in the infinitive, e.g. 'Ich will ein Buch lesen.'",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "23. Juni 2026",
+    "cards": [
+      {
+        "front": "stretchen",
+        "back": "to stretch, as in yoga or sports (stretchte – gestretcht haben)",
+        "type": "word"
+      },
+      {
+        "front": "schlimm",
+        "back": "awful",
+        "type": "word"
+      },
+      {
+        "front": "komisch",
+        "back": "weird / funny",
+        "type": "word"
+      },
+      {
+        "front": "die Übung / die Übungen",
+        "back": "the exercise(s)",
+        "type": "word"
+      },
+      {
+        "front": "ein paar",
+        "back": "a couple",
+        "type": "phrase"
+      },
+      {
+        "front": "die Bewegung",
+        "back": "the movement",
+        "type": "word"
+      },
+      {
+        "front": "genug",
+        "back": "enough",
+        "type": "word"
+      },
+      {
+        "front": "wissen",
+        "back": "to know",
+        "type": "word"
+      },
+      {
+        "front": "ungefähr",
+        "back": "approximately",
+        "type": "word"
+      },
+      {
+        "front": "sogar",
+        "back": "even",
+        "type": "word"
+      },
+      {
+        "front": "wenig",
+        "back": "few / little",
+        "type": "word"
+      },
+      {
+        "front": "das Übergewicht",
+        "back": "the obesity / overweight",
+        "type": "word"
+      },
+      {
+        "front": "die Krankheit / die Krankheiten",
+        "back": "the illness(es) / sickness(es)",
+        "type": "word"
+      },
+      {
+        "front": "dagegen",
+        "back": "against that",
+        "type": "word"
+      },
+      {
+        "front": "tun",
+        "back": "to do (tat – getan haben)",
+        "type": "word"
+      },
+      {
+        "front": "das Arbeitstreffen",
+        "back": "the work meeting",
+        "type": "word"
+      },
+      {
+        "front": "zu Fuß gehen",
+        "back": "to walk on foot somewhere",
+        "type": "phrase"
+      },
+      {
+        "front": "der Ratschlag",
+        "back": "the advice",
+        "type": "word"
+      },
+      {
+        "front": "gewinnen",
+        "back": "to win (gewann – gewonnen haben)",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "03. Juli 2026",
+    "cards": [
+      {
+        "front": "der Körperteil / die Körperteile",
+        "back": "the body part(s)",
+        "type": "word"
+      },
+      {
+        "front": "das Bein / die Beine",
+        "back": "the leg(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Bauch / die Bäuche",
+        "back": "the belly, bellies",
+        "type": "word"
+      },
+      {
+        "front": "das Auge / die Augen",
+        "back": "the eye(s)",
+        "type": "word"
+      },
+      {
+        "front": "der Schnupfen",
+        "back": "the sniffles",
+        "type": "word"
+      },
+      {
+        "front": "die Erkältung",
+        "back": "the common cold",
+        "type": "word"
+      },
+      {
+        "front": "der Husten",
+        "back": "the cough",
+        "type": "word"
+      },
+      {
+        "front": "die Salbe",
+        "back": "the ointment",
+        "type": "word"
+      },
+      {
+        "front": "der Hustensaft",
+        "back": "the cough syrup",
+        "type": "word"
+      },
+      {
+        "front": "das Nickerchen",
+        "back": "the nap",
+        "type": "word"
+      },
+      {
+        "front": "sollen",
+        "back": "should (sollte – gesollt haben)",
+        "type": "word"
+      },
+      {
+        "front": "sollen conjugation",
+        "back": "ich soll, du sollst, er soll, wir sollen, ihr sollt, Sie sollen",
+        "type": "concept"
+      }
+    ]
+  },
+  {
+    "date": "07. Juli 2026",
+    "cards": [
+      {
+        "front": "nehmen",
+        "back": "to take (nahm – genommen haben)",
+        "type": "word"
+      },
+      {
+        "front": "der Mund / die Münder",
+        "back": "the mouth(s)",
+        "type": "word"
+      },
+      {
+        "front": "unbedingt",
+        "back": "absolutely / unconditionally",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "10. Juli 2026",
+    "cards": [
+      {
+        "front": "segeln",
+        "back": "to sail (segelte – gesegelt sein)",
+        "type": "word"
+      },
+      {
+        "front": "der Berg / die Berge",
+        "back": "the mountain(s)",
+        "type": "word"
+      },
+      {
+        "front": "steigen",
+        "back": "to ascend/descend (stieg – gestiegen sein)",
+        "type": "word"
+      },
+      {
+        "front": "die Welt / die Welten",
+        "back": "the world(s)",
+        "type": "word"
+      },
+      {
+        "front": "das Mittelmeer",
+        "back": "the Mediterranean Sea",
+        "type": "word"
+      },
+      {
+        "front": "selbstständig",
+        "back": "independent / self-employed",
+        "type": "word"
+      },
+      {
+        "front": "gründen",
+        "back": "to found (gründete – gegründet haben)",
+        "type": "word"
+      },
+      {
+        "front": "die Note / die Noten",
+        "back": "the grade(s) at school",
+        "type": "word"
+      },
+      {
+        "front": "eigen / eigene",
+        "back": "own",
+        "type": "word"
+      },
+      {
+        "front": "verdienen",
+        "back": "to earn / to deserve (verdiente – verdient haben)",
+        "type": "word"
+      },
+      {
+        "front": "erfolgreich",
+        "back": "successful",
+        "type": "word"
+      },
+      {
+        "front": "der Erfolg / die Erfolge",
+        "back": "the success(es)",
+        "type": "word"
+      }
+    ]
+  },
+  {
+    "date": "14. Juli 2026",
+    "cards": [
+      {
+        "front": "Ein Unglück kommt selten allein.",
+        "back": "Misfortune never arrives alone.",
+        "type": "phrase"
+      }
+    ]
+  },
+  {
+    "date": "17. Juli 2026",
+    "cards": [
+      {
+        "front": "Nadine ist am Telefon",
+        "back": "Nadine is on her phone / Nadine is using her phone",
+        "type": "phrase"
+      },
+      {
+        "front": "die Wäsche",
+        "back": "the laundry",
+        "type": "word"
+      },
+      {
+        "front": "das Geschirr",
+        "back": "the dishes",
+        "type": "word"
+      },
+      {
+        "front": "das Geschirr abwaschen / spülen",
+        "back": "to wash the dishes",
+        "type": "phrase"
+      }
+    ]
+  }
+]
